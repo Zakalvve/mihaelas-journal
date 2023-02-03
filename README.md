@@ -18,7 +18,7 @@ You are welcome to fork this project and run it locally.
 
 Will install the required dependencies. 
 
-See *Getting Started with Create React App* below for methods for compiling and running the program.
+See *Getting Started with Create React App* below for methods to compile and run the program.
 
 If you wish to fork this repo and run this project
 # Getting Started with Create React App
