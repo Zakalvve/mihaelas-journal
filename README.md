@@ -10,6 +10,17 @@ This SPA app is powered by React but I use [Showdown](https://www.npmjs.com/pack
 
 This app can be viewed live at [Mihaelas Journal](https://mihaelas-journal.netlify.app/). Enjoy reading about her explots in the world of Katya.
 
+## Running this project locally
+
+You are welcome to fork this project and run it locally.
+
+`npm install`
+
+Will install the required dependencies. 
+
+See *Getting Started with Create React App* below for methods for compiling and running the program.
+
+If you wish to fork this repo and run this project
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
