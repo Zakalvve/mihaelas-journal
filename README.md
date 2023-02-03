@@ -1,3 +1,13 @@
+# Mihaellas Journal
+
+This project is an online interactive journal created by the halfling Mihaela Thorngage. In real life it was written by Michael, a player in my ongoing Dungeons and Dragons campaign.
+
+The journal entries are converted to a giant markdown file by Michael. I created a script that parses this file and splits the entries into seperate files. It also creates a consistent directory structure.
+
+This SPA app is powered by React but I use [Showdown](https://www.npmjs.com/package/react-showdown) to convert markdown files to react components.
+
+This app can be viewed live at [Mihaelas Journal](https://mihaelas-journal.netlify.app/). Enjoy reading about her explots in the world of Katya.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
