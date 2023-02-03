@@ -1,4 +1,4 @@
-# Mihaellas Journal
+# Mihaelas Journal
 
 **Currently Under Development**
 
