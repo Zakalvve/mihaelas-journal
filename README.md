@@ -6,7 +6,7 @@ This project is an online interactive journal created by the halfling Mihaela Th
 
 The journal entries are converted to a giant markdown file by Michael. I created a script that parses this file and splits the entries into seperate files. It also creates a consistent directory structure.
 
-This SPA app is powered by React but I use [Showdown](https://www.npmjs.com/package/react-showdown) to convert markdown files to react components.
+This SPA app is powered by React but I use [React Markdown](https://github.com/remarkjs/react-markdown) to convert markdown files to react components.
 
 This app can be viewed live at [Mihaelas Journal](https://mihaelas-journal.netlify.app/). Enjoy reading about her explots in the world of Katya.
 
