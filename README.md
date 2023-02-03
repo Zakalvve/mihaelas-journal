@@ -1,5 +1,7 @@
 # Mihaellas Journal
 
+**Currently Under Development**
+
 This project is an online interactive journal created by the halfling Mihaela Thorngage. In real life it was written by Michael, a player in my ongoing Dungeons and Dragons campaign.
 
 The journal entries are converted to a giant markdown file by Michael. I created a script that parses this file and splits the entries into seperate files. It also creates a consistent directory structure.
