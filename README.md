@@ -14,7 +14,7 @@ This app can be viewed live at [Mihaelas Journal](https://mihaelas-journal.netli
 
 You are welcome to fork this project and run it locally.
 
-`npm install`
+### `npm install`
 
 Will install the required dependencies. 
 
