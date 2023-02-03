@@ -1,0 +1,18 @@
+# 19th of Domak 862nd Year Age of Air, Hideout
+
+So much to think about, my head is spinning. Ok, Vujek, those grokkels have given up on him. Urdlen and his wife. How Ailuin saw someone who appears to be Urdlen's wife. Work Cancak has done with auromite. Bruno.
+
+All right, so when we arrived back in village, praise LLirra that Eary could do that and save us walking all way back. That armour is too heavy for that. When we got back Ailuin saw us and cautioned us for fear someone might see, and that it was poignant as empire had been to village and refused to leave until major had bent knee and sworn loyalty. Tof. This is just getting worse and worse. Why here? But one of strangest things was one of people that was here with empire. When Ailuin tried to describe her I couldn't help but think of Urdlen's wife, and it seemed he had same thought as he cast image of Verzana and Ailuin was visibly taken aback. It seems that it was his wife with empire. But why? I spoke with him privately in evening, but he seemed convinced there must have been some mistake. He assured me that Verzana wouldn't side with grokkel, and I believe him. So either she has been coerced or something similar, or this wasn't Verzana and there is some mistake. Either way, I told him we'd help. Now I can only hope he accepts my apology for what I did in Drilwood. I didn't know that he'd lost her, or how he didn't know where she'd gone. Having lost Mały I can empathise with his pain and know 40 years would have done little to ease it.
+
+Tof! I cannot believe everyone has given up on Vujek. Isn't he one of seven? How are we meant to fulfil prophecy without him? Pish that, isn't he our friend? Don't we at least owe it to him, as our friend, to at least try to find him? I care not what they say, I won't give up on him, and I'll do all in my power to find him and save him. Maybe Morthos can help, he can scry, hopefully he can shed light of Vujek's whereabouts. I'll have to ask him tomorrow.
+
+So, Cancak. He showed us some of things he'd been working on, I have to admit I don't really understand it, but I'm only mere river folk. But from what I did understand it's very powerful and in hands of those who know how to use it, potentially dangerous. And as those hands are empire, it's more than potentially, it's actually. I also think he was saying how it exists in two forms, one seemed powerful and dangerous, other not so. But when combined it's devastating. Trouble is empire has access to it in former state, and has now found supply of it in later state. I fear worst.
+
+Finally, Bruno. It seems he has initiated himself into group and made hideout something of second home. I fear his eagerness to get involved will see harm comer to him. I don't know how to dissuade him without hurting him or threatening our relationship. I fear I may have too though. Llirra, please help me see another way.
+
+...
+
+I fear I have lost Bruno and I am so sad. Literally just after finishing writing I heard something and went to see what it was, Babcha and Nettle had also risen and it was clear something was wrong. When we got to where sound came from I could hear battle so called for everyone to wake and made to fight. What I saw was UIrdlen trying to hold off some monster. When we defeated it I heard Bruno. Urdlen had taught him magic which had drawn beast, and now I am to lose friend. My little human friend, he has been so kind to me, always welcoming, and now he's gone.
+
+After fight we went to see Loren and he told of how he had found Bruno and had vision at time. Urdlen had also had vision. Whatever, Loren set his mind that he and Bruno must run. And now I fear I won't see mały Bruno again.
+

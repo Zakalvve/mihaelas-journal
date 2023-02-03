@@ -1,0 +1,4 @@
+# 1st of Hivali 862 Age of Air, Hideout
+
+Azshara is creepy. I don't know what it is about her, but there's something about her that's unnerving. When I was working on shrine I noticed it, she was just there and there was something about it that makes me uncomfortable. She's worse than Eary, she's just weird and way she talks to whatever it is, not herself, I saw it in council at Taramont. I don't know if it's ghost, part of Eary, some other Fey spirit thing or what. I just know Easry isn't talking to herself, but it's still weird and little unnerving hearing her talk like that. And she's creepy to, to be fair, but at leat she seems genuine and actually friendly. Even if she does call me undead abomination, I don't think she'd actually hurt me. but Azshara, she's just creepy, and so distant and aloof. She makes me uncomfortable.
+

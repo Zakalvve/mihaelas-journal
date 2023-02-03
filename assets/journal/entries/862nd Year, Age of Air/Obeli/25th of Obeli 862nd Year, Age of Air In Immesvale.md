@@ -1,0 +1,14 @@
+# 25th of Obeli 862nd Year Age of Air, Immesvale
+
+Pem Fey. They are so weird and annoying, they have propensity to ruin everything. Giving me Fey Leaf while I was unconscious and making fool of me. just wait until he's where I can teach him lesson, then we'll see who can handle what.
+
+But it is nice to be back here, where I've been greeted with open arms and as friend, even hosted by major who was good enough to give us meal. Yes, praise Llirra, it is good to be here, even with chaos caused by those dman Fey.
+
+And Bruno, while I'm glad he's ok, I'm so annoyed at him for how he behaved at Drunken Duck. And what is going on with his magic, I feel like there may be cause for concern. Granted, I know little about topic even though I have felt my power grow since leaving Taromont, whatever is going on clearly worried Urdlen. I hope boy isn't in any danger, he is dear to me.
+
+But Yaga, that Drunken Duck was no pub. All I wanted was to go have quite drink with my friends and companions, and talk at nice pub. But what did we find, some Fey circus full of terrors causing chaos and mischief. Pish. Why where they here? Couldn't they have gone and annoyed some other village? And couldn't someone else have taken over Brass Salmon? That was good inn. And Monty was good man, or at least he was to me. he treated me so well and was always kind, I'm sad to hear he died. I can't believe he'd help hag. But if he did, then I guess Babcha was right. Damn hags, I hate them. I wish I'd been there to kill them myself, after what that one did to me. although, I guess she was right when she said Mały was alive. But I didn't know that at time, and even if I did trying to cook me wasn't good way to get me to betray my brother. Thinking about this, I should probably talk to Mały and Babcha about that tomorrow.
+
+As for now, I guess we'll be looking at hideout. Durzol seemed keen to show us what he'd done. I hope there is place to pray there. If there isn't I'll have to make sure we build one. Obviously I'd just want shine to Llirra, blessed be her name, but I think Babcha worships another God and would probably want shine as well. So I guess best thing would be to just have general shine where people can pray to whatever they want. And while I'm talking about things to do in hideout, I think Mały said he wanted to make bar. While, now Monty is gone and no one is using Brass Salmon, maybe it would be good idea. It would provide alternative to pem Drunken Duck for everyone who wants to drink without chaos of that place. I guess we have lot to talk about tomorrow.
+
+It's shame this town doesn't sit on river. I think Ma and Pa would like it here. And if it's going to be our base it would be ideal place for them to meet us. But Imme is little to far away for their liking, alas. Although, thinking about it, maybe it's best they did stay away. I wouldn't want them to be put into danger. If only Vujek was here, he has become like family to me.
+
