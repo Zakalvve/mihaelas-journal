@@ -1,10 +1,20 @@
 import './App.css';
+import React from "react";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { JournalEntry } from './components/JournalEntry/journal-entry.component';
+import { JournalEntry } from './components/journal-entry/journal-entry.component';
+import { JournalSearch } from './components/journal-search/journal-search.component';
 
 function App() {
+
+  const [entryPath, setEntryPath] = React.useState("./entries/861/Teragoth/01-10-861-Taramont.md");
+
+  const handleChange = (path = "") => {
+    setEntryPath(path);
+    console.log("This is a test");
+  }
+
   return (
     <div className="App">
       <header>
@@ -23,7 +33,8 @@ function App() {
       </header>
       <main>
         <Container>
-          <JournalEntry/>
+          <JournalSearch onChange={handleChange} />
+          <JournalEntry path={entryPath}/>
         </Container>
       </main>
       <footer>

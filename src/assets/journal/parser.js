@@ -3,8 +3,69 @@ const readline = require('readline');
 
 async function processLineByLine() {
 
-    function calculatePath(words){
-        let path = "./entries/";
+    let directory = {
+        years: [
+            {
+                year: "861",
+                months: [
+                    {
+                        month: "teragoth",
+                        entries: [
+                            {
+                                path: "./entries/861/teragoth/",
+                                fileName: "01-01-861-location.md",
+                                date: {
+                                    formatedString: "01-01-861 AA",
+                                    day: "1st",
+                                    month: "Teragoth",
+                                    year: "861st Year, Age of Air"  
+                                },
+                                location: "Taramont",
+                                data: "Content"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                year: "862",
+                months: [
+
+                ]
+            }
+        ]
+    };
+
+    function monthToNumber(month){
+        switch (month){
+            case "Obeli":
+                return "01";
+            case "Hivali":
+                return "02"
+            case "Domak":
+                return "03";
+            case "Parith":
+                return "04";
+            case "Forrith":
+                return "05";
+            case "Vey":
+                return "06";
+            case "Voley":
+                return "07";
+            case "Karmutch":
+                return "08";
+            case "Firagoth":
+                return "09";
+            case "Teragoth":
+                return "10";
+            case "Hydrigoth":
+                return "11";
+            case "Teprogoth":
+                return "12";
+        }
+    }
+    function createEntryHeader(words, location){
+        
         let months = [
             "Obeli",
             "Hivali",
@@ -19,37 +80,50 @@ async function processLineByLine() {
             "Hydrigoth",
             "Teprogoth",
         ];
-        var month, year, day = "";
+        
+        let path = "./entries/";
+        let date = {};
+        date.formatedString, date.year, date.month, date.day = "";
+        let day, month, year = "";
     
         words.forEach(word => {
             if (months.includes(word)){
                 month = word;
             } else if (/\d/.test(word)){
                 if (word.startsWith("861")){
-                    year = "861st Year, Age of Air";
+                    year = "861";
                 } else if (word.startsWith("862")) {
-                    year = "862nd Year, Age of Air";
+                    year = "862";
                 } else {
-                    let dayAsNumber = getNumberFromString(word)
-                    day = suffixOfDay(+dayAsNumber);
-                    console.log(day);
+                    day = getNumberFromString(word)
                 }
-            } else{
-                console.log(word);
             }
         });
+
+        date = constructDate(day, month, year);
+
+
         return {
             path: `${path}${year}/${month}/`,
-            day: day,
-            month: month,
-            year: year
+            fileName: `${date.formatedString}-${location}.md`,
+            date: date,
+            location: location
         };
     }
     
+    function constructDate(day, month, year){
+        return {
+            formatedString: `${day}-${monthToNumber(month)}-${year}`,
+            day: suffixOfDay(day),
+            month: month,
+            year: `${suffixOfDay(year)} year, Age of Air`
+        };
+    }
+
     function getNumberFromString(word){
         let matches = word.match(/\d+/g);
-    
-        return matches[0];
+        
+        return matches[0].length < 2 ? "0" + matches[0] : matches[0];
     }
     
     function suffixOfDay(i) {
@@ -100,8 +174,7 @@ async function processLineByLine() {
             firstSection = false;
         }
         
-        sectionInfo = calculatePath(words);
-        sectionInfo.location = getLocationFromLine(line);
+        sectionInfo = createEntryHeader(words, getLocationFromLine(line));
         var modifiedTitle = "# " + line;
         data = data + modifiedTitle + "\n";
     } else {
@@ -109,12 +182,23 @@ async function processLineByLine() {
     }
   }
 
+  //create json file
+  var arrayAsJson = JSON.stringify(newFiles);
+  fs.writeFile(`./site-content.json`, arrayAsJson, function(err) {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log("Json content file was saved!");
+    }
+   });
+
+  //create new markdown files
   newFiles.forEach(function(file) {
     i = newFiles.indexOf(file);
     (function (i) {
         console.log(i);
         fs.mkdirSync(file.header.path, { recursive: true });
-        fs.writeFile(`${file.header.path + file.header.day} of ${file.header.month} ${file.header.year} In ${file.header.location}.md`, file.data, function(err) {
+        fs.writeFile(`${file.header.path + file.header.fileName}.md`, file.data, function(err) {
         if (err) {
             console.log(err);
         } else {
