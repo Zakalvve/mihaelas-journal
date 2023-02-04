@@ -4,6 +4,8 @@ import "./journal-entry.styles.scss"
 
 export const JournalEntry = () => {
     const markdown = `# 21st of Domak 862nd Year Age of Air, Feywild trane
+    
+---
 
 Well, now I've seen train, and I still don't know what it is. Some strange hulking mass of metal on wheels, that rides on rainbow. What sort of crazy place is this? And what ride on trane it was. River king warned us that there would be people who meant Babcha harm, and certainly little shits we were accosted by did. Murderous little crazies. First we knew trane suddenly came to complete halt and we set off to find what was wrong. My fellows failed to keep up with me and I was attacked by whole hord of what Babcha called red caps, crazy is what I call them. but we won day soon enough, though I was hurting by end. Damn things. Damn place. Praise be to Llirra that my fellows have magic to heal.
 
