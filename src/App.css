@@ -3,12 +3,12 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-image: url("https://www.worldanvil.com/uploads/images/9a85062935f039ee4f87624f4177cbce.png");
 }
 
 main {
   display: flex;
   flex-grow: 1;
-  background-image: url("https://www.worldanvil.com/images/bg-dark.jpg");
   font-size: calc(10px + 2vmin);
   justify-content: center;
 }
@@ -17,7 +17,7 @@ main div.container{
   background-color: #ddc9a863;
   box-shadow: 0 -1px 15px 5px rgba(0,0,0,.2);
   flex-grow: 1;
-  margin: 2rem 0;
+  margin-bottom: 5rem;
 }
 
 

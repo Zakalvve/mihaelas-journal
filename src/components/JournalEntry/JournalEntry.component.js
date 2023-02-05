@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import MarkdownView from 'react-showdown';
-import "./journal-entry.styles.scss"
+import "./JournalEntry.styles.scss"
 import { fetchSiteData } from "../../serverProxy";
 
 export const JournalEntry = ({path}) => {

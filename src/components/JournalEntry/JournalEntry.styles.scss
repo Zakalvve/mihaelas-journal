@@ -6,7 +6,14 @@
 #journal-entry h1 {
     margin: 1.3rem 0 1.3rem 0;
     color: #5c0202;
-    font-family: Solitreo, serif;
+    font-family: Metamorphous, serif;
+}
+#journal-entry h1::after{
+    content: "";
+    padding-top: 0.2em;
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #5c0202;
 }
 
 #journal-entry p {
