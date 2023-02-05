@@ -37,12 +37,16 @@
   }
 
   footer .navbar {
-    background-color: var(--bs-body-bg-fade);
+    background-color: var(--bs-body-bg);
     transition: background-color 200ms;
   }
 
   footer .navbar:hover {
     background-color: var(--bs-body-bg);
+  }
+
+  h1 {
+    color: #{$mob};
   }
 }
 // 5. Include remainder of required parts
