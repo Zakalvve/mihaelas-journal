@@ -8,8 +8,15 @@ import { Journal } from './pages/Journal';
 import { EntryBrowser } from './pages/EntryBrowser';
 import { About } from './pages/About'; 
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom'; 
+import { journalDirectory } from './serverProxy';
 
 function App() {
+  try {
+    //console.log(journalDirectory.getNode(3));
+  } catch(error) {
+    console.error(error);
+  }
+
   return (
     <Router>
       <div className="App" data-bs-theme="journal">
@@ -31,8 +38,9 @@ function App() {
           <Container>
             <Routes>
               <Route path="/" element={<Home/>} />
-              <Route path="/journal" element={<Journal/>} />
               <Route path="/journal-browse" element={<EntryBrowser/>} />
+              <Route path="/journal/:entryId" element={<Journal/>} />
+              <Route path="/journal" element={<Journal/>}/>
               <Route path="/about" element={<About/>} />
             </Routes>
           </Container>

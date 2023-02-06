@@ -1,20 +1,23 @@
-import React from "react";
-import { JournalEntry } from "../components/JournalEntry/JournalEntry.component"
-import { JournalSearch } from "../components/JournalSearch/JournalSearch.component"
+import React, { useState } from "react";
+import { journalDirectory } from "../serverProxy";
+import { JournalEntry } from "../components/JournalEntry/JournalEntry.component";
+import { JournalSearch } from "../components/JournalSearch/JournalSearch.component";
+import { Link, useParams } from 'react-router-dom';
 
 export const Journal = () => {
-    
-    const [entryPath, setEntryPath] = React.useState("./entries/861/Teragoth/01-10-861-Taramont.md");
+    let { entryId } = useParams();
+    if (!entryId) entryId = journalDirectory.getFirstEntryId();
+    const [dataNode, setDataNode] = useState(journalDirectory.findById(entryId));
 
     //callback to change the displayed journal entry
-    const loadEntry = (path = "") => {
-        setEntryPath(path);
+    const loadEntry = (id) => {
+        setDataNode(journalDirectory.findById(id));
     }
 
     return(
         <>
-            <JournalSearch onChange={loadEntry} />
-            <JournalEntry path={entryPath}/>
+            {/*<JournalSearch onChange={loadEntry} />*/}
+            <JournalEntry onClick={loadEntry}entryNode={dataNode}/>
         </>
     );
 }

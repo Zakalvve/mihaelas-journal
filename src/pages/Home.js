@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { journalDirectory } from "../serverProxy";
 
 export const Home = () => {
     return (
@@ -11,7 +12,7 @@ export const Home = () => {
             <p>This journal was written by Michael as a part of the ongoing DnD campaign A Matter of Blood.</p>
             
             <div className="flex-grow-1 d-flex flex-column-reverse p-3 pb-5">
-                <Link to="/journal">Check out the first entry and go from there</Link>
+                <Link to={`/journal/${journalDirectory.getFirstEntryId()}`}>Check out the first entry and go from there</Link>
             </div>
         </div>
     );

@@ -1,40 +1,9 @@
 const fs = require('fs');
 const readline = require('readline');
 
+let directory = {  };
+
 async function processLineByLine() {
-
-    let directory = {
-        years: [
-            {
-                year: "861",
-                months: [
-                    {
-                        month: "teragoth",
-                        entries: [
-                            {
-                                path: "./entries/861/teragoth/",
-                                fileName: "01-01-861-location.md",
-                                date: {
-                                    formatedString: "01-01-861 AA",
-                                    day: "1st",
-                                    month: "Teragoth",
-                                    year: "861st Year, Age of Air"  
-                                },
-                                location: "Taramont",
-                                data: "Content"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                year: "862",
-                months: [
-
-                ]
-            }
-        ]
-    };
 
     function monthToNumber(month){
         switch (month){
@@ -83,8 +52,8 @@ async function processLineByLine() {
         
         let path = "./entries/";
         let date = {};
-        date.formatedString, date.year, date.month, date.day = "";
-        let day, month, year = "";
+        [date.formatedString, date.year, date.month, date.day] = ["","","",""];
+        let [day, month, year] = ["","",""];
     
         words.forEach(word => {
             if (months.includes(word)){
@@ -114,9 +83,11 @@ async function processLineByLine() {
     function constructDate(day, month, year){
         return {
             formatedString: `${day}-${monthToNumber(month)}-${year}`,
-            day: suffixOfDay(day),
+            dayAsString: suffixOfDay(day),
+            day: day,
             month: month,
-            year: `${suffixOfDay(year)} year, Age of Air`
+            yearAsString: `${suffixOfDay(year)} year, Age of Air`,
+            year: year
         };
     }
 
@@ -148,6 +119,59 @@ async function processLineByLine() {
         let part = parts[partIterator].trim();
         return part;
     }
+
+    function objectIsEmpty(obj){
+        return Object.keys(obj).length === 0;
+    }
+
+    function addEntryToDirectory(entry){
+        let [newYear, newMonth] = [false, false];
+        let [year, month] = [null, null];
+
+        if (directory.years){
+            year = directory.years.find(year => year.year === entry.header.date.year);
+        }
+        else {
+            directory.years = [];
+        }
+
+        if (!year){
+            year = {
+                year: entry.header.date.year,
+                months: []
+            };
+            newYear = true;
+        }
+
+        if (year.months){
+            month = year.months.find(month => month.month === entry.header.date.month);
+        }
+        else {
+            year.months = [];
+        }
+
+        if (!month){
+            month = {
+                month: entry.header.date.month,
+                entries: []
+            };
+            newMonth = true;
+        }
+
+        if (newYear && newMonth){
+            month.entries.push(entry);
+            year.months.push(month);
+            directory.years.push(year);
+        } else if(!newYear && newMonth){
+            month.entries.push(entry);
+            let yearIndex = directory.years.indexOf(directory.years.find(dYear => dYear.year === entry.header.date.year));
+            directory.years[yearIndex].months.push(month);
+        } else if (!newYear && !newMonth){
+            let yearIndex = directory.years.indexOf(directory.years.find(dYear => dYear.year === entry.header.date.year));
+            let monthIndex = directory.years[yearIndex].months.indexOf(directory.years[yearIndex].months.find(dMonth => dMonth.month === entry.header.date.month));
+            directory.years[yearIndex].months[monthIndex].entries.push(entry);
+        }
+    }
     
   const fileStream = fs.createReadStream('./master.md');
 
@@ -156,7 +180,7 @@ async function processLineByLine() {
     crlfDelay: Infinity
   });
 
-  let newFiles = [];
+  //let newFiles = [];
   let sectionInfo = {};
   let data = "";
   let firstSection = true;
@@ -165,7 +189,12 @@ async function processLineByLine() {
     let words = line.split(" ");
     if (/\d/.test(words[0])){
         if (!firstSection){
-            newFiles.push({
+/*             newFiles.push({
+                header: sectionInfo,
+                data: data
+            }); */
+
+            addEntryToDirectory({
                 header: sectionInfo,
                 data: data
             });
@@ -176,15 +205,15 @@ async function processLineByLine() {
         
         sectionInfo = createEntryHeader(words, getLocationFromLine(line));
         var modifiedTitle = "# " + line;
-        data = data + modifiedTitle + "\n";
+        data += modifiedTitle + "\n";
     } else {
-        data = data + line + "\n";
+        data += line + "\n";
     }
   }
 
-  //create json file
-  var arrayAsJson = JSON.stringify(newFiles);
-  fs.writeFile(`./site-content.json`, arrayAsJson, function(err) {
+  console.log(directory);
+  var json = JSON.stringify(directory);
+  fs.writeFile(`./directory.json`, json, function(err) {
     if (err) {
         console.log(err);
     } else {
@@ -192,8 +221,18 @@ async function processLineByLine() {
     }
    });
 
+  //create json file
+/*   var arrayAsJson = JSON.stringify(newFiles);
+  fs.writeFile(`./site-content.json`, arrayAsJson, function(err) {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log("Json content file was saved!");
+    }
+   }); */
+
   //create new markdown files
-  newFiles.forEach(function(file) {
+/*   newFiles.forEach(function(file) {
     i = newFiles.indexOf(file);
     (function (i) {
         console.log(i);
@@ -207,7 +246,7 @@ async function processLineByLine() {
         });
         console.log(i);
     })(i);
-    });
+    }); */
 }
 
 processLineByLine();
