@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { journalDirectory } from "../modules/serverProxy";
-import { JournalEntry } from "../components/JournalEntry/JournalEntry.component";
-//import { JournalSearch } from "../components/JournalSearch/JournalSearch.component";
+import { JournalEntry } from "../components/JournalEntry.component";
+//import { JournalSearch } from "../components/JournalSearch.component";
 import { /*Link,*/ useParams } from 'react-router-dom';
 
 export const Journal = () => {

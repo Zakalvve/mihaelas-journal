@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import MarkdownView from 'react-showdown';
-import "./JournalEntry.styles.scss"
+import "./styles/JournalEntry.style.scss"
 
 export const JournalEntry = ({entryNode, onClick}) => {
     const [markdown, setMarkdown] = useState(entryNode.data.file.data);
