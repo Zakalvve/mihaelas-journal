@@ -27,7 +27,7 @@ function App() {
                 <Nav className="me-auto">
                   <Nav.Link as={Link} to="/">Home</Nav.Link>
                   <Nav.Link as={Link} to="/journal-browse">Journal</Nav.Link>
-                  <Nav.Link as={Link}to="/about">About</Nav.Link>
+                  <Nav.Link as={Link} to="/about">About</Nav.Link>
                 </Nav>
               </Navbar.Collapse>
             </Container>
@@ -37,6 +37,7 @@ function App() {
           <Container>
             <Routes>
               <Route path="/" element={<Home/>} />
+              <Route path="/journal-browse/:nodeId" element={<EntryBrowser/>} />
               <Route path="/journal-browse" element={<EntryBrowser/>} />
               <Route path="/journal/:entryId" element={<Journal/>} />
               <Route path="/journal" element={<Journal/>}/>

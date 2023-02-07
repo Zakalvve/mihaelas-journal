@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import MarkdownView from 'react-showdown';
 import "./styles/JournalEntry.style.scss"
+import { Link } from 'react-router-dom';
 
 export const JournalEntry = ({entryNode, onClick}) => {
     const [markdown, setMarkdown] = useState(entryNode.data.file.data);
@@ -13,28 +14,23 @@ export const JournalEntry = ({entryNode, onClick}) => {
     /*const handleLoadError = () => {
         setLoadError(true);
     }*/
-    const handleClickPrevious = () => {
-        try {
-            onClick(entryNode.data.traversal.last.data.id);
-        } catch(error){
-            console.log("User tried to click previous on the first entry.");
-            console.log(error);
-        }
+    const previousId = () => {
+        if (entryNode.data.traversal.last)
+            return entryNode.data.traversal.last.data.id;
+        else return entryNode.id;
     }
-    const handleClickNext = () => {
-        try {
-        onClick(entryNode.data.traversal.next.data.id);
-        } catch (error) {
-            console.log("User tried to click previous on the first entry.");
-            console.log(error);
-        }
+    const nextId = () => {
+        if (entryNode.data.traversal.next)
+            return entryNode.data.traversal.next.data.id;
+        else 
+            return entryNode.id;
     }
 
     return (
         <div id="journal-entry">
             {loadError ? <p>Error</p> : <MarkdownView markdown={markdown}/>}
-            <button onClick={handleClickPrevious}>Pervious</button>
-            <button onClick={handleClickNext}>Next</button>
+            <Link className="btn btn-primary" to={`/journal/${previousId()}`}>Pervious</Link>
+            <Link className="btn btn-primary" to={`/journal/${nextId()}`}>Next</Link>
         </div>
     );
   };

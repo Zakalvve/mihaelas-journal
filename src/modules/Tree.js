@@ -101,17 +101,6 @@ export class DocumentTree extends Collection {
         return node;
     }
 
-    getNodeData(node){
-        return node.data.type === "folder" ? node.children : node.data.file;
-    }
-
-    getNodeType(node){
-        return node.data.type;
-    }
-
-    getNodeID(node){
-        return node.id;
-    }
 
     //recursive search functions
     findById(id){
@@ -166,6 +155,30 @@ export class DocumentTree extends Collection {
 
     getFirstEntryId(){
         return this._allEntries._head.data.id;
+    }
+
+    getNodePathAsIds(path){
+        //EG ./entries/861/Teragoth => ["Teragoth", "861", "entries", "."]
+        const splitPath = path.split("/").reverse();
+        //pop off the root
+        splitPath.pop();
+        splitPath.pop();
+    
+        let idArray = [];
+        //Result ["Teragoth", "861"] -> pass array into recursive function
+        idArray.push({id: this._root.id, name: "Journal"});
+        this.#recursiveGetNodePathAsIds(this._root, splitPath, idArray);
+        console.log(idArray);
+        return idArray;
+    }
+
+    #recursiveGetNodePathAsIds(node, pathArray, outArray){
+        if (pathArray.length === 0) return outArray;
+        let search = pathArray.pop();
+        let foundNode = node.getChild(search);
+        if (!foundNode) throw ReferenceError(`Cannot find ${search} in ${node.data.type} ${node.data.path}`);
+        outArray.push({id: foundNode.id, name: foundNode.data.path});
+        return this.#recursiveGetNodePathAsIds(foundNode, pathArray, outArray);
     }
 }
 
