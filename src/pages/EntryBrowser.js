@@ -10,9 +10,9 @@ export const EntryBrowser = () => {
 
     const [journalNode, setJournalNode] = useState(journalDirectory.findById(nodeId));
 
-    if (journalNode.id !== nodeId){
+    if (journalNode.id != nodeId){
         console.log("page changed");
-        setJournalNode(journalDirectory.findById(nodeId))
+        setJournalNode(journalDirectory.findById(nodeId));
     }
 
 

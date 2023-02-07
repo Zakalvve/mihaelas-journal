@@ -16,7 +16,7 @@ export const Journal = () => {
     }
 
         
-    if (dataNode.id !== entryId){
+    if (dataNode.id != entryId){
         loadEntry(entryId);
     }
 
