@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { journalDirectory } from "../serverProxy";
+import { journalDirectory } from "../modules/serverProxy";
 import { Link } from "react-router-dom";
 
 export const EntryBrowser = () => {

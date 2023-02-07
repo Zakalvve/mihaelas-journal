@@ -1,5 +1,5 @@
-import jsonData from "./assets/journal/site-content.json";
-import testData from "./assets/journal/directory.json";
+import jsonData from "../assets/journal/site-content.json";
+import testData from "../assets/journal/directory.json";
 import { DocumentTree} from "./Tree";
 
 export let journalDirectory = mapDirectory();

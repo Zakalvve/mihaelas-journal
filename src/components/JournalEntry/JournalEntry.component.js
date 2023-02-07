@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import MarkdownView from 'react-showdown';
 import "./JournalEntry.styles.scss"
-import { fetchSiteData } from "../../serverProxy";
 
 export const JournalEntry = ({entryNode, onClick}) => {
     const [markdown, setMarkdown] = useState(entryNode.data.file.data);
-    const [loadError, setLoadError] = useState(false);
+    const [loadError, /*setLoadError*/] = useState(false);
 
     useEffect(() => {
         setMarkdown(entryNode.data.file.data);
     },[entryNode]);
 
+    /*const handleLoadError = () => {
+        setLoadError(true);
+    }*/
     const handleClickPrevious = () => {
         try {
             onClick(entryNode.data.traversal.last.data.id);

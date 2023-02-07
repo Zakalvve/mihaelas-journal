@@ -1,5 +1,5 @@
 import React, {useState } from "react";
-import { searchResults } from "../../serverProxy";
+import { searchResults } from "../../modules/serverProxy";
 
 export const JournalSearch = (props) => {
     

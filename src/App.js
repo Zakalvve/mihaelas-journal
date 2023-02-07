@@ -8,7 +8,6 @@ import { Journal } from './pages/Journal';
 import { EntryBrowser } from './pages/EntryBrowser';
 import { About } from './pages/About'; 
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom'; 
-import { journalDirectory } from './serverProxy';
 
 function App() {
   try {
