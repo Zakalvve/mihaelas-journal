@@ -10,8 +10,9 @@ export const EntryBrowser = () => {
 
     const [journalNode, setJournalNode] = useState(journalDirectory.findById(nodeId));
 
-    if (journalNode.id != nodeId){
+    if (journalNode.id !== +nodeId){
         console.log("page changed");
+        console.log(`pageid type: ${typeof(nodeId)}. NodeId: ${typeof(journalNode.id)}`);
         setJournalNode(journalDirectory.findById(nodeId));
     }
 
