@@ -17,6 +17,7 @@ function mapDirectory (data = testData) {
     }
     console.log(tree);
     tree.getNodePathAsIds("./entries/862/Domak");
+    tree.print();
     return tree;
 };
 
