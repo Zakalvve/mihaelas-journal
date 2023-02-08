@@ -1,13 +1,15 @@
-import './App.css';
+import './App.style.scss';
 import React from "react";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import { default as BsNavbar} from 'react-bootstrap/Navbar';
+import { Navbar } from './components/Navbar.component';
 import { Home } from './pages/Home';
 import { Journal } from './pages/Journal';
 import { EntryBrowser } from './pages/EntryBrowser';
 import { About } from './pages/About'; 
-import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom'; 
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; 
+import { Hero } from './components/Hero.component';
 
 function App() {
   try {
@@ -18,23 +20,11 @@ function App() {
 
   return (
     <Router>
-      <div className="App" data-bs-theme="journal">
-        <header>
-          <Navbar expand="md">
-            <Container>
-              <Navbar.Toggle aria-controls="basic-navbar-nav" />
-              <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="me-auto">
-                  <Nav.Link as={Link} to="/">Home</Nav.Link>
-                  <Nav.Link as={Link} to="/journal-browse">Journal</Nav.Link>
-                  <Nav.Link as={Link} to="/about">About</Nav.Link>
-                </Nav>
-              </Navbar.Collapse>
-            </Container>
-          </Navbar>
-        </header>
+      <div className="app">
+        <Navbar />
         <main>
-          <Container>
+          <Hero />
+          <Container className="journal-page">
             <Routes>
               <Route path="/" element={<Home/>} />
               <Route path="/journal-browse/:nodeId" element={<EntryBrowser/>} />
@@ -46,13 +36,13 @@ function App() {
           </Container>
         </main>
         <footer>
-          <Navbar>
+          <BsNavbar>
             <Container>
               <Nav className="me-auto p-5">
                 <p>Test</p>
               </Nav>
             </Container>
-          </Navbar>
+          </BsNavbar>
         </footer>
       </div>
     </Router>

@@ -1,0 +1,64 @@
+.hero {
+    background-image: url("../../../public/banner-image-1080.webp");
+    height: 20rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/// Stroke font-character
+/// @param  {Integer} $stroke - Stroke width
+/// @param  {Color}   $color  - Stroke color
+/// @return {List}            - text-shadow list
+@function stroke($stroke, $color) {
+    $shadow: ();
+    $from: $stroke*-1;
+    @for $i from $from through $stroke {
+     @for $j from $from through $stroke {
+        $shadow: append($shadow, $i*1px $j*1px 0 $color, comma);
+      }
+    }
+    @return $shadow;
+  }
+  /// Stroke font-character
+  /// @param  {Integer} $stroke - Stroke width
+  /// @param  {Color}   $color  - Stroke color
+  /// @return {Style}           - text-shadow
+  @mixin stroke($stroke, $color) {
+    text-shadow: stroke($stroke, $color);
+  }
+
+.hero h1 {
+    color: #f0cb18;
+    font-size: 80px;
+    font-family: Dungeon;
+    @include stroke(3, black);
+    margin-top: auto;
+    margin-bottom: 0.1em;
+}
+
+@media only screen and (min-width: 800px){
+    .hero h1 {
+        font-size: 140px;
+    }
+}
+
+@media only screen and (min-width: 1200px){
+    .hero h1 {
+        font-size: 180px;
+    }
+}
+
+.image-container {
+    overflow: hidden;
+  }
+  
+  .image-container img {
+    display: block;
+    width: auto;
+    min-height: 120px;
+  }
