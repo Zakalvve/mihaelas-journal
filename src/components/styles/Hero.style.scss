@@ -1,9 +1,7 @@
 .hero {
-    background-image: url("../../../public/banner-image-1080.webp");
-    height: 20rem;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: url("../../../public/banner-image-1080.webp") no-repeat center bottom;
     background-size: cover;
+    height: 20em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,8 +35,6 @@
     font-size: 80px;
     font-family: Dungeon;
     @include stroke(3, black);
-    margin-top: auto;
-    margin-bottom: 0.1em;
 }
 
 @media only screen and (min-width: 800px){
