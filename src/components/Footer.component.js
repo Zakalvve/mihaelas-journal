@@ -1,4 +1,3 @@
-import "./styles/Footer.style.scss"
 import { Navbar, Container, Nav } from "react-bootstrap";
 
 export const Footer = () => {

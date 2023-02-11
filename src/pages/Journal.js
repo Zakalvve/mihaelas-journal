@@ -4,20 +4,9 @@ import { JournalEntry } from "../components/JournalEntry.component";
 import { JournalBreadcrumbs } from "../components/JournalBreadcrumbs.component";
 //import { JournalSearch } from "../components/JournalSearch.component";
 import { /*Link,*/ useParams } from 'react-router-dom';
-import song from "./fire.ogg";
+import { Soundscape } from "../components/Soundscape.component";
 
 export const Journal = () => {
-    const [audio, SetAudio] = useState("");
-    const Playit = () => {
-        audio.play();
-        audio.loop = true;
-      };
-      const Stopit = () => {
-        audio.pause();
-      };
-      useEffect(() => {
-        SetAudio(new Audio(song));
-      }, []);
 
     let { entryId } = useParams();
     if (!entryId) entryId = journalDirectory.getFirstEntryId();
@@ -35,9 +24,9 @@ export const Journal = () => {
 
     return(
         <>
-        <JournalBreadcrumbs path={dataNode.data.fullPath} />
-        <button onClick={Playit}>Play</button>
-        <button onClick={Stopit}>Stop</button>
+            <Soundscape />
+            <JournalBreadcrumbs path={dataNode.data.fullPath} />
+        
             {/*<JournalSearch onChange={loadEntry} />*/}
             <JournalEntry entryNode={dataNode}/>
         </>

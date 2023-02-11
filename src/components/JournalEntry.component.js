@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import MarkdownView from 'react-showdown';
-import "./styles/JournalEntry.style.scss"
 import { Link } from 'react-router-dom';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export const JournalEntry = ({entryNode, onClick}) => {
     const [markdown, setMarkdown] = useState(entryNode.data.file.data);
@@ -29,8 +30,18 @@ export const JournalEntry = ({entryNode, onClick}) => {
     return (
         <div id="journal-entry">
             {loadError ? <p>Error</p> : <MarkdownView markdown={markdown}/>}
-            <Link className="btn btn-primary" to={`/journal/${previousId()}`}>Pervious</Link>
-            <Link className="btn btn-primary" to={`/journal/${nextId()}`}>Next</Link>
+            <Row className="py-2">
+                <Col className="text-center" md={{span: 2, offset: 1}} xs={{span:3, offset:1}}>
+                    <Link className="btn btn-nav" to={`/journal/${previousId()}`}>
+                        <i className="bi bi-arrow-left"></i>
+                    </Link>
+                </Col>
+                <Col className="text-center" md={{span:2, offset: 6}} xs={{span: 3, offset:4}}>
+                    <Link className="btn btn-nav" to={`/journal/${nextId()}`}>
+                        <i className="bi bi-arrow-right"></i>
+                    </Link>
+                </Col>
+            </Row>         
         </div>
     );
   };

@@ -14,27 +14,7 @@ code {
     monospace;
 }
 
-main {
-  position: relative;
-  font-size: calc(10px + 2vmin);
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-main .container {
-  z-index: 1;
-}
-
-header {
-  position: absolute;
-  right: 0;
-  left: 0;
-}
-
-.journal-page{
-  flex-grow: 1;
-  margin-bottom: 870px;
-  min-height: 200px;
+svg {
+  width: 1em;
+  height: 1em;
 }

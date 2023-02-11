@@ -16,7 +16,7 @@ export const Navbar = () => {
     const handleFocusOut = () => {
         timeoutId = setTimeout(() => {
             setIsExpanded(false);
-        }, 400);
+        }, 200);
     }
 
     const handleFocusIn = () => {

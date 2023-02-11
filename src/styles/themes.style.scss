@@ -2,48 +2,156 @@
 // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
 @import "../../node_modules/bootstrap/scss/functions";
 
+/// Stroke font-character
+/// @param  {Integer} $stroke - Stroke width
+/// @param  {Color}   $color  - Stroke color
+/// @return {List}            - text-shadow list
+@function stroke($stroke, $color) {
+  $shadow: ();
+  $from: $stroke*-1;
+  @for $i from $from through $stroke {
+   @for $j from $from through $stroke {
+      $shadow: append($shadow, $i*1px $j*1px 0 $color, comma);
+    }
+  }
+  @return $shadow;
+}
+
 // 2. Include any default variable overrides here
+
+
 
 // 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
 @import "../../node_modules/bootstrap/scss/variables";
 
+//add animation
+@media only screen and  (max-width: map-get($grid-breakpoints, md)){
+  .animate {
+      animation-duration: 0.3s;
+      -webkit-animation-duration: 0.3s;
+      animation-fill-mode: both;
+      -webkit-animation-fill-mode: both;
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateY(1.5rem);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0rem);
+    opacity: 1;
+  }
+
+  0% {
+    transform: translateY(1.5rem);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes slide-in {
+  0% {
+    -webkit-transform: transform;
+    -webkit-opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    -webkit-opacity: 1;
+  }
+
+  0% {
+    -webkit-transform: translateY(1.5rem);
+    -webkit-opacity: 0;
+  }
+}
+
+.slide-in {
+  -webkit-animation-name: slide-in;
+  animation-name: slide-in;
+}
+
+
 // 4. Include any default map overrides here
 [data-bs-theme="journal"] {
-  $mob: #ad1313;
-  $katya: #f0cb18;
-  $journal: #ddc9a8;
+  
+  //define some of the themes primary colours
+  $mob: #9b2222;      //primary
+  $katya: #f0cb18;    //secondary
+  $journal: #dab06d;  //journal
+  $eggshell: #416472;
+  $mocha: #4e392ffc;
+  $space: #0d1117;
+  $wisp: #30363d;
 
+  $mob-100: tint-color($mob, 80%);
+  $mob-200: tint-color($mob, 60%);
+  $mob-300: tint-color($mob, 40%);
+  $mob-400: tint-color($mob, 20%);
+  $mob-500: $mob;
+  $mob-600: shade-color($mob, 20%);
+  $mob-700: shade-color($mob, 40%);
+  $mob-800: shade-color($mob, 60%);
+  $mob-900: shade-color($mob, 80%);
 
-  $mob-100: tint-color($mob, 80%) !default;
-  $mob-200: tint-color($mob, 60%) !default;
-  $mob-300: tint-color($mob, 40%) !default;
-  $mob-400: tint-color($mob, 20%) !default;
-  $mob-500: $mob !default;
-  $mob-600: shade-color($mob, 20%) !default;
-  $mob-700: shade-color($mob, 40%) !default;
-  $mob-800: shade-color($mob, 60%) !default;
-  $mob-900: shade-color($mob, 80%) !default;
+  $katya-100: tint-color($katya, 80%);
+  $katya-200: tint-color($katya, 60%);
+  $katya-300: tint-color($katya, 40%);
+  $katya-400: tint-color($katya, 20%);
+  $katya-500: $katya;
+  $katya-600: shade-color($katya, 20%);
+  $katya-700: shade-color($katya, 40%);
+  $katya-800: shade-color($katya, 60%);
+  $katya-900: shade-color($katya, 80%);
 
-  $katya-100: tint-color($katya, 80%) !default;
-  $katya-200: tint-color($katya, 60%) !default;
-  $katya-300: tint-color($katya, 40%) !default;
-  $katya-400: tint-color($katya, 20%) !default;
-  $katya-500: $katya !default;
-  $katya-600: shade-color($katya, 20%) !default;
-  $katya-700: shade-color($katya, 40%) !default;
-  $katya-800: shade-color($katya, 60%) !default;
-  $katya-900: shade-color($katya, 80%) !default;
+  $journal-100: tint-color($journal, 80%);
+  $journal-200: tint-color($journal, 60%);
+  $journal-300: tint-color($journal, 40%);
+  $journal-400: tint-color($journal, 20%);
+  $journal-500: $journal;
+  $journal-600: shade-color($journal, 20%);
+  $journal-700: shade-color($journal, 40%);
+  $journal-800: shade-color($journal, 60%);
+  $journal-900: shade-color($journal, 80%);
 
-  $dark-bg-color: #0d1117;
-  $dark-border-color: #30363d;
-  $fade: #00000033;
+  $eggshell-100: tint-color($eggshell, 80%);
+  $eggshell-200: tint-color($eggshell, 60%);
+  $eggshell-300: tint-color($eggshell, 40%);
+  $eggshell-400: tint-color($eggshell, 20%);
+  $eggshell-500: $eggshell;
+  $eggshell-600: shade-color($eggshell, 20%);
+  $eggshell-700: shade-color($eggshell, 40%);
+  $eggshell-800: shade-color($eggshell, 60%);
+  $eggshell-900: shade-color($eggshell, 80%);
 
-  --bs-body-color: white;
-  --bs-body-color-rgb: #{to-rgb($white)};
-  --bs-body-bg: black;
-  --bs-body-bg-fade: #{mix($dark-bg-color, $fade)};
-  --bs-body-bg-rgb: #{to-rgb($blue)};
-  --bs-tertiary-bg: #{$blue-600};
+  $mocha-100: tint-color($mocha, 80%);
+  $mocha-200: tint-color($mocha, 60%);
+  $mocha-300: tint-color($mocha, 40%);
+  $mocha-400: tint-color($mocha, 20%);
+  $mocha-500: $mocha;
+  $mocha-600: shade-color($mocha, 20%);
+  $mocha-700: shade-color($mocha, 40%);
+  $mocha-800: shade-color($mocha, 60%);
+  $mocha-900: shade-color($mocha, 80%);
+
+  $space-100: tint-color($space, 80%);
+  $space-200: tint-color($space, 60%);
+  $space-300: tint-color($space, 40%);
+  $space-400: tint-color($space, 20%);
+  $space-500: $space;
+
+  $wisp-100: tint-color($wisp, 80%);
+  $wisp-200: tint-color($wisp, 60%);
+  $wisp-300: tint-color($wisp, 40%);
+  $wisp-400: tint-color($wisp, 20%);
+  $wisp-500: $wisp;
+
+  --bs-body-color: #{$mocha-500};
+  --bs-body-color-rgb: #{to-rgb($mocha-500)};
+  --bs-body-bg: #{$journal-100};
+  --bs-body-bg-rgb: #{to-rgb($journal-100)};
   --bg-image-top: url("https://www.worldanvil.com/uploads/images/9a85062935f039ee4f87624f4177cbce.png");
   --nav-shadow: transparent;
 
@@ -64,31 +172,46 @@
 
   --journal:#{$journal};
 
+  //Container
+  .container {
+    --bs-gutter-x: 3.5rem;
+  }
+  /// NAVBAR THEME
   .navbar {
-    background-color: transparent;
-    box-shadow: var(--nav-shadow);
+    --bs-navbar-padding-x: 0;
+    --bs-navbar-padding-y: 0.5rem;
+    --bs-navbar-color: white;
+    --bs-navbar-hover-color: #{$katya};
+    --bs-navbar-disabled-color: rgba(255, 255, 255, 0.3);
+    --bs-navbar-active-color: rgba(255, 255, 255, 0.9);
+    --bs-navbar-nav-link-padding-x: 1.1em;
+    --bs-navbar-toggler-padding-y: 0.25rem;
+    --bs-navbar-toggler-padding-x: 0.75rem;
+    --bs-navbar-toggler-font-size: 1.25rem;
+    --bs-navbar-toggler-icon-bg: url(data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 30 30%27%3e%3cpath stroke=%27rgba%280, 0, 0, 0.55%29%27 stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 stroke-width=%272%27 d=%27M4 7h22M4 15h22M4 23h22%27/%3e%3c/svg%3e);
+    --bs-navbar-toggler-border-color: rgba(0, 0, 0, 0.1);
+    --bs-navbar-toggler-border-radius: 0.375rem;
+    --bs-navbar-toggler-focus-width: 0.15rem;
+    --bs-navbar-toggler-transition: box-shadow 0.5s ease-in-out;
+
     justify-content: center;
     z-index: 30;
-    --bs-navbar-nav-link-padding-x: 1.1em;
   }
 
-  .navbar-nav, .nav-link{
-    color: var(--bs-body-color);
-    --bs-nav-link-hover-color: #{$katya};
+  .navbar-nav {
     --bs-nav-link-font-weight: 400;
-    --bs-nav-link-font-size: 1.3em;
     --bs-nav-link-padding-y: 1em;
   }
 
   .navbar-collapse {
     text-align: center;
-    background-color: #{$dark-bg-color};
-    border: 1px solid #{$dark-border-color};
-    border-radius: 8px;
-    padding: 0, 8em;
+    background-color: #{$space};
+    border: 1px solid #{$wisp};
+    border-radius: 3px;
+    padding: 0, 13em;
   }
 
-  @media (min-width : 768px){
+  @media only screen and  (min-width : map-get($grid-breakpoints, md)){
     .navbar-nav, .nav-link{
         transition: transform 400ms 0ms ease-out;
     }
@@ -99,57 +222,9 @@
         min-width: none;
     }
 
-    .nav-link:hover, .nav-link:focus {
+    .nav-link:hover{
         transform: translate(0, -0.3em)
       }
-  }
-
-  @media (max-width: 768px){
-    .animate {
-        animation-duration: 0.3s;
-        -webkit-animation-duration: 0.3s;
-        animation-fill-mode: both;
-        -webkit-animation-fill-mode: both;
-    }
-  }
-
-  @keyframes slide-in {
-    0% {
-      transform: translateY(1.5rem);
-      opacity: 0;
-    }
-  
-    100% {
-      transform: translateY(0rem);
-      opacity: 1;
-    }
-  
-    0% {
-      transform: translateY(1.5rem);
-      opacity: 0;
-    }
-  }
-  
-  @-webkit-keyframes slide-in {
-    0% {
-      -webkit-transform: transform;
-      -webkit-opacity: 0;
-    }
-  
-    100% {
-      -webkit-transform: translateY(0);
-      -webkit-opacity: 1;
-    }
-  
-    0% {
-      -webkit-transform: translateY(1.5rem);
-      -webkit-opacity: 0;
-    }
-  }
-
-  .slide-in {
-    -webkit-animation-name: slide-in;
-    animation-name: slide-in;
   }
 
   .navbar-toggler {
@@ -160,15 +235,197 @@
     background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 30 30%27%3e%3cpath stroke=%27rgba%28255, 255, 255, 0.9%29%27 stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 stroke-width=%272%27 d=%27M4 7h22M4 15h22M4 23h22%27/%3e%3c/svg%3e")
   }
 
+  /// FOOTER THEME
   footer .navbar {
     background-color: transparent;
   }
 
+  .footer-theme {
+    position: absolute;
+    bottom:0;
+    left: 0;
+    right: 0;
+    background: url("../../public/around-the-campfire.webp") no-repeat center bottom;
+    background-size: cover;
+    height: 997px;
+    min-height: 100vh;
+    font-size: 1.2rem;
+  }
+
+  .footer-theme footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      color: #FFFFFF;
+  }
+
+  .footer-theme p {
+      margin: 0;
+  }
+
+  .breadcrumb {
+    --bs-breadcrumb-margin-bottom: 1rem;
+    --bs-breadcrumb-divider-color: #6c757d;
+    --bs-breadcrumb-item-active-color: #6c757d;
+  }
+
+  //BREADCRUMBS
+  @media only screen and (min-width: map-get($grid-breakpoints, md)){
+    .breadcrumb { 
+        list-style: none; 
+        overflow: hidden; 
+        font: 18px Sans-Serif;
+        margin: 1em 0 1em 0;
+        border-radius: 5px 0 0 5px;
+    }
+    .breadcrumb .breadcrumb-item { 
+        float: left; 
+    }
+    .breadcrumb .breadcrumb-item a {
+        color: white;
+        text-decoration: none; 
+        padding: 10px 0 10px 3em;
+        background: darkred; /* fallback color */
+        background: var(--primary-700);
+        position: relative; 
+        display: block;
+        float: left;
+        transition: all 400ms 0ms ease;
+    }
+
+    .breadcrumb .breadcrumb-item a::after { 
+        content: " "; 
+        display: block; 
+        width: 0; 
+        height: 0;
+        border-top: 50px solid transparent; /* Go big on the size, and let overflow hide */
+        border-bottom: 50px solid transparent;
+        border-left: 3.3em solid var(--primary-700);
+        position: absolute;
+        top: 50%;
+        margin-top: -50px; 
+        left: 100%;
+        z-index: 2;
+        transition: all 400ms 0ms ease;
+    }
+
+    .breadcrumb .breadcrumb-item a::before { 
+        content: " "; 
+        display: block; 
+        width: 0; 
+        height: 0;
+        border-top: 50px solid transparent;       
+        border-bottom: 50px solid transparent;
+        border-left: 3.3em solid var(--journal);
+        position: absolute;
+        top: 50%;
+        margin-top: -50px; 
+        margin-left: 1px;
+        left: 100%;
+        z-index: 1;
+        transition: all 400ms 0ms ease;
+    }
+
+    .breadcrumb .breadcrumb-item:first-child a {
+        padding-left: 10px;
+    }
+    .breadcrumb .breadcrumb-item:nth-child(2) a       { background:        var(--primary-700); }
+    .breadcrumb .breadcrumb-item:nth-child(2) a:after { border-left-color: var(--primary-700); }
+    .breadcrumb .breadcrumb-item:nth-child(3) a       { background:        var(--primary-700); }
+    .breadcrumb .breadcrumb-item:nth-child(3) a:after { border-left-color: var(--primary-700); }
+    .breadcrumb .breadcrumb-item:nth-child(4) a       { background:        var(--primary-700); }
+    .breadcrumb .breadcrumb-item:nth-child(4) a:after { border-left-color: var(--primary-700); }
+    .breadcrumb .breadcrumb-item:nth-child(5) a       { background:        var(--primary-700); }
+    .breadcrumb .breadcrumb-item:nth-child(5) a:after { border-left-color: var(--primary-700); }
+    .breadcrumb .breadcrumb-item:last-child a {
+        background-color: #{$mob};
+        pointer-events: none;
+        cursor: default;
+    }
+    .breadcrumb .breadcrumb-item:last-child a:after {
+      border-left-color: #{$mob};
+    }
+
+    .breadcrumb .breadcrumb-item a:hover { 
+        background: var(--primary-800); 
+    }
+    .breadcrumb .breadcrumb-item a:hover:after { 
+        border-left-color: var(--primary-800) !important; 
+    }
+  }
+
+  //Hero
+  .hero {
+    background: url("../../public/banner-image-1080.webp") no-repeat center bottom;
+    background-size: cover;
+    height: 15em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+    /// Stroke font-character
+  /// @param  {Integer} $stroke - Stroke width
+  /// @param  {Color}   $color  - Stroke color
+  /// @return {Style}           - text-shadow
+  @mixin stroke($stroke, $color) {
+    text-shadow: stroke($stroke, $color);
+  }
+
+  .hero h1 {
+      color: #f0cb18;
+      font-size: 80px;
+      font-family: Dungeon;
+      padding-top: 0.7em;
+      @include stroke(3, black);
+  }
+
+  @media only screen and (min-width: 800px){
+      .hero h1 {
+          font-size: 140px;
+      }
+  }
+
+  @media only screen and (min-width: 1200px){
+      .hero h1 {
+          font-size: 180px;
+      }
+  }
+
+  #journal-entry {
+    text-align: justify;
+    font-size: 13px;
+  }
+
+  #journal-entry h1 {
+      margin: 1.3rem 0 1.3rem 0;
+      color: #{$mob-600};
+      font-family: Metamorphous, serif;
+  }
+  #journal-entry h1::after{
+      content: "";
+      padding-top: 0.2em;
+      display: block;
+      width: 100%;
+      border-bottom: 2px solid #{$mocha};
+  }
+
+  #journal-entry p {
+      font-size: 1.2em;
+      line-height: 1.4em;
+      font-family: "source sans pro", sans-serif;
+      word-spacing: 0.1em;
+      margin-bottom: 1.4rem;
+      color: #{$mocha};
+  }
   h1 {
-    color: #{$mob};
+    color: #{$mob-600};
   }
 
   .app {
+    color: #{$mocha};
     background-color: black;
   }
 
@@ -176,13 +433,38 @@
     background-color: #ddc9a863;
     background-image: var(--bg-image-top);
     box-shadow: inset 0 0 0 1000px #ddc9a863;
+    padding-bottom: 1.5rem;
+  }
+
+  .btn {
+    --bs-btn-padding-x: 0.75rem;
+    --bs-btn-padding-y: 0.375rem;
+    --bs-btn-font-family: ;
+    --bs-btn-font-size: 1rem;
+    --bs-btn-font-weight: 400;
+    --bs-btn-line-height: 1.5;
+    --bs-btn-color: white;
+    --bs-btn-bg: #{$mob-600};
+    --bs-btn-border-width: 1px;
+    --bs-btn-border-color: transparent;
+    --bs-btn-hover-border-color: transparent;
+    --bs-btn-active-color: #{$mob-600};
+    --bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
+    --bs-btn-disabled-opacity: 0.65;
+    --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);
+    --bs-btn-hover-bg: #{$mob-800};
+    --bs-btn-hover-color: var(--bs-btn-color);
+  }
+
+  .btn-nav{
+    width: 6em;
+  }
+
+  .btn i {
+    text-align: center;
+    font-size: 2em;
   }
 
 }
-// 5. Include remainder of required parts
-@import "../../node_modules/bootstrap/scss/maps";
-@import "../../node_modules/bootstrap/scss/mixins";
-@import "../../node_modules/bootstrap/scss/root";
-
 
 @import "~bootstrap/scss/bootstrap";

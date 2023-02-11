@@ -1,7 +1,6 @@
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import { LinkContainer } from 'react-router-bootstrap';
 import { journalDirectory } from '../modules/serverProxy';
-import "./styles/JournalBreadcrumb.style.scss"
 
 export const JournalBreadcrumbs = ({path}) => {
 
