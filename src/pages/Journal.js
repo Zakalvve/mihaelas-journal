@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { journalDirectory } from "../modules/serverProxy";
 import { JournalEntry } from "../components/JournalEntry.component";
 import { JournalBreadcrumbs } from "../components/JournalBreadcrumbs.component";

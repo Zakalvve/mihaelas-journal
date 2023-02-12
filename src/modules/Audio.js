@@ -12,12 +12,22 @@ import forestAmbience from "../assets/audio/ambience.ogg";
 
 //create and export data audio components
 const AudioData = {
-    loops: [new Audio(campFire), new Audio(forestAmbience)],
+    loops: [
+        {
+            sound: new Audio(campFire),
+            volume: 0.35
+        }, 
+        { 
+            sound: new Audio(forestAmbience),
+            volume: 0.12
+        }
+    ],
     effects: [
         {
             name: "quillFx",
             spacing: 4300,
-            deviation: 0.1,
+            deviation: 0.8,
+            volume: 1,
             clips: [
                 new Audio(scribble_1),
                 new Audio(scribble_2),
@@ -28,8 +38,9 @@ const AudioData = {
         },
         {
             name: "howlFx",
-            spacing: 4300,
-            deviation: 0.1,
+            spacing: 60000,
+            deviation: 1,
+            volume: 0.05,
             clips: [
                 new Audio(wolfHowl_1),
                 new Audio(wolfHowl_2),
@@ -71,68 +82,87 @@ const AudioData = {
 ]*/
 
 class AudioManager {
+    //Initialize
     constructor(loops, effects){
         //initialise our looping sounds
         this._loops = loops;
         //initialise our sound effects
         this._effects = effects;
-
+        
         this.ProcessInputAudio();
 
         //create our effect queue
         this._effectQueue = new EffectQueue();
-        //set our default current effect to null
-        this._currentEffect = {effect: null, clip: null, isPlaying: false};
-        //set that this time of initialization is the time the last sound was played
-        this._soundFinishedAt = Math.floor(Date.now() / 1000);
-        //declate a variable that dictates the minimum time between effects in ms
-        this._minTimeBetweenEffects = 2100;
-        //a list of active effect timeouts
-        this._activeTimeouts = new Map();
+        this._currentUpdateId = null;
 
         //bind this instance of the AudioManager to all the methods that require a this reference during callbacks
         this.BeginUpdateLoop = this.BeginUpdateLoop.bind(this);
         this.OnUpdate = this.OnUpdate.bind(this);
         this.TryEffect = this.TryEffect.bind(this);
-
-        //start our looping sounds
-        this.BeginLoops();
-        //begin our effect callback system
-        this.BeginEffects();
-
-        //begin update loop and store reference to its id
-        this._currentUpdateId = setTimeout(this.BeginUpdateLoop,500);
+        this.BeginLoops = this.BeginLoops.bind(this);
+        this.BeginEffects = this.BeginEffects.bind(this);
     }
 
     get CurrentlyPlaying() {
         return this._currentEffect ? this._currentEffect.name : "None";
     }
 
-    //begins an update loop which runs every 500 ms
-    BeginUpdateLoop(){
-        this._currentUpdateId = setTimeout(this.BeginUpdateLoop, 500);
-        this.OnUpdate();
-    }
-
-    //process sounds
-    ProcessInputAudio(){
+     //process sounds
+     ProcessInputAudio(){
         for (let clip of this._loops){
-            clip.loop = true;
-            clip.autoplay = true;
-            clip.muted = true;
+            clip.sound.loop = true;
+            clip.sound.autoplay = true;
+            clip.sound.muted = true;
+            clip.sound.volume = clip.volume;
         }
 
         for (let effect of this._effects){
             for (let clip of effect.clips){
                 clip.autoplay = true;
                 clip.muted = true;
+                clip.volume = effect.volume;
             }
         }
     }
+
+    //Controls
+    InitializePlay(){
+        //set our default current effect to null
+        this._currentEffect = {effect: null, clip: null, isPlaying: false};
+        //set that this time of initialization is the time the last sound was played
+        this._soundFinishedAt = Math.floor(Date.now());
+        //declate a variable that dictates the minimum time between effects in ms
+        this._minTimeBetweenEffects = 2100;
+        //a list of active effect timeouts
+        this._activeTimeouts = new Map();
+    }
+
+    Play(){
+        this.InitializePlay();
+         //start our looping sounds
+         this.BeginLoops();
+         //begin our effect callback system
+         this.BeginEffects();
+ 
+         //begin update loop and store reference to its id
+         this._currentUpdateId = setTimeout(this.BeginUpdateLoop,500);
+    }
+
+    Stop(){
+        this.Destroy();
+    }
+
+    //Turns the update loop on
+    BeginUpdateLoop(){
+        this._currentUpdateId = setTimeout(this.BeginUpdateLoop, 500);
+        this.OnUpdate();
+    }
+
     //starts playing the sounds which simply loop
     BeginLoops(){
         for (let audio  of this._loops){
-            audio.play();
+            audio.sound.muted = false;
+            audio.sound.play();
         }
     }
 
@@ -148,12 +178,13 @@ class AudioManager {
     //called every 500 ms when the audio manager updates itself
     OnUpdate(){
         //handle terminating conditions
-        let timeSinceLastSound = Math.floor(Date.now() / 1000) - this._soundFinishedAt;
-        if (this._currentEffect.isPlaying || timeSinceLastSound < this._minTimeBetweenEffects) return;
+        let timeSinceLastSound = Math.floor(Date.now()) - this._soundFinishedAt;
+        if (this._currentEffect.isPlaying || timeSinceLastSound < this._minTimeBetweenEffects || this._effectQueue.length === 0) return;
         
         //we are free to play an effect
         let effectData = this._effectQueue.Dequeue();
         let effect = effectData.effect;
+        effectData.effect.clips[effectData.clip].muted = false;
         effectData.effect.clips[effectData.clip].play();
 
         //set the state of the audio manager to record the currently playing effect
@@ -164,10 +195,10 @@ class AudioManager {
         //set a callback that is triggered when the effect stops playing
         effectData.effect.clips[effectData.clip].onended = () => {
             this._currentEffect.isPlaying = false;
-            this._soundFinishedAt = Math.floor(Date.now() / 1000);
+            this._soundFinishedAt = Math.floor(Date.now());
 
             //re-register this effect
-            let timeTillPlay = effect.spacing + (effect.spacing * (Math.random * effect.deviation));
+            let timeTillPlay = effect.spacing + (effect.spacing * Math.random() * effect.deviation);
             let clipIndex = Math.floor(Math.random() * effect.clips.length);
             this.RegisterEffect(effectData.effect, clipIndex, timeTillPlay);
         };
@@ -175,10 +206,12 @@ class AudioManager {
 
 
     RegisterEffect(fx, fxi, timeTillPlay){
-        return setTimeout(this.TryEffect,timeTillPlay);
+        return setTimeout(() => {
+            this.TryEffect(fx, fxi);
+        },timeTillPlay);
     }
 
-    TryEffect(fx, fxi, timeTillPlay){
+    TryEffect(fx, fxi){
         //if we can play right away - just play it - CHANGE TO SUPPORT THIS
         this._effectQueue.Enqueue({effect: fx, clip: fxi});
     }

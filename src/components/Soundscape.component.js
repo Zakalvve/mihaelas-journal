@@ -1,9 +1,15 @@
-import {useState, useEffect } from "react";
 import { SoundscapeManager } from "../modules/Audio";
 
 export const Soundscape = () => {
 
+    const handleClick = () => {
+        SoundscapeManager.Play();
+    }
+
     return (
-        <div>{SoundscapeManager.CurrentlyPlaying}</div>
+        <>
+            <button onClick={handleClick}>Play</button>
+            <div>{SoundscapeManager.CurrentlyPlaying}</div>
+        </>
     );
 }
