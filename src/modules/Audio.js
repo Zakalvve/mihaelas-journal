@@ -15,7 +15,7 @@ const AudioData = {
     loops: [
         {
             sound: new Audio(campFire),
-            volume: 0.35
+            volume: 0.55
         }, 
         { 
             sound: new Audio(forestAmbience),
@@ -95,6 +95,9 @@ class AudioManager {
         this._effectQueue = new EffectQueue();
         this._currentUpdateId = null;
 
+        //a list of active effect timeouts
+        this._activeTimeouts = new Map();
+
         //bind this instance of the AudioManager to all the methods that require a this reference during callbacks
         this.BeginUpdateLoop = this.BeginUpdateLoop.bind(this);
         this.OnUpdate = this.OnUpdate.bind(this);
@@ -133,8 +136,6 @@ class AudioManager {
         this._soundFinishedAt = Math.floor(Date.now());
         //declate a variable that dictates the minimum time between effects in ms
         this._minTimeBetweenEffects = 2100;
-        //a list of active effect timeouts
-        this._activeTimeouts = new Map();
     }
 
     Play(){
@@ -200,7 +201,7 @@ class AudioManager {
             //re-register this effect
             let timeTillPlay = effect.spacing + (effect.spacing * Math.random() * effect.deviation);
             let clipIndex = Math.floor(Math.random() * effect.clips.length);
-            this.RegisterEffect(effectData.effect, clipIndex, timeTillPlay);
+            this._activeTimeouts.set(effect.name, this.RegisterEffect(effectData.effect, clipIndex, timeTillPlay));
         };
     }
 
@@ -223,12 +224,16 @@ class AudioManager {
 
         //stop all looping sounds
         for (let audio  of this._loops){
-            audio.stop();
+            audio.sound.pause();
         }
 
         //stop any currently playing effects
         if (this._currentEffect.isPlaying){
-            this._currentEffect.effect.clips[this._currentEffect.clip].stop();
+            this._currentEffect.effect.clips[this._currentEffect.clip].pause();
+        }
+
+        for (let id of this._activeTimeouts){
+            clearTimeout(id);
         }
     }
 }
