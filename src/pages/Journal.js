@@ -24,8 +24,8 @@ export const Journal = () => {
 
     return(
         <>
-            <Soundscape />
             <JournalBreadcrumbs path={dataNode.data.fullPath} />
+            <Soundscape />
         
             {/*<JournalSearch onChange={loadEntry} />*/}
             <JournalEntry entryNode={dataNode}/>
