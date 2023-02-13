@@ -21,7 +21,7 @@ export const Soundscape = () => {
         return () => {
             if (am) am.Stop();
         };
-    },[]);
+    },[controller]);
 
     //handles a click event for the play/pause button
     const handleClick = (e) => {
