@@ -10,18 +10,15 @@ export const Soundscape = () => {
     const [isPlaying, setIsPlaying] = useState(false); //probably redundant -> move to controller
 
     useEffect(() => {
-        let am;
-        if (!controller){
-            am = new AudioManager(AudioData.loops, AudioData.effects);
-            setController(am);
-        }
+        let am = new AudioManager(AudioData.loops, AudioData.effects);
+        setController(am);
 
         setIsPlaying(false);
 
         return () => {
             if (am) am.Stop();
         };
-    },[controller]);
+    },[]);
 
     //handles a click event for the play/pause button
     const handleClick = (e) => {
