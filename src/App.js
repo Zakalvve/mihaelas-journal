@@ -9,6 +9,7 @@ import { About } from './pages/About';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; 
 import { Hero } from './components/Hero.component';
 import { Footer } from './components/Footer.component';
+import { PageControls } from './components/PageControls';
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
           </Container>
         </main>
         <Footer />
+        <PageControls />
       </div>
     </Router>
   );

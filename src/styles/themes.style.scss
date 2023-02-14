@@ -170,7 +170,15 @@
   --secondary-400: #{$katya-400};
   --secondary-200: #{$katya-200};
 
-  --journal:#{$journal};
+  --journal-100:#{$journal-100};
+  --journal-200:#{$journal-200};
+  --journal-300:#{$journal-300};
+  --journal-400:#{$journal-400};
+  --journal-500:#{$journal-500};
+  --journal-600:#{$journal-600};
+  --journal-700:#{$journal-700};
+  --journal-800:#{$journal-800};
+  --journal-900:#{$journal-900};
 
   //Container
   .container {

@@ -61,6 +61,7 @@ intervals. The effects are then queued in an effect queue and played when it is 
 
 This creates a multilayed soundscape.
 */
+
 export class AudioManager {
     //INITIALIZE
     constructor(loops, effects){
@@ -68,6 +69,8 @@ export class AudioManager {
         this._loops = loops;
         //initialise our sound effects
         this._effects = effects;
+        //the global volume level which effects all sounds played
+        this._volume = 1.0;
         //sets up the input audio files for use within this system
         this.ProcessInputAudio();
 
@@ -83,6 +86,9 @@ export class AudioManager {
         //declate a variable that dictates the minimum time between effects in ms
         this._minTimeBetweenEffects = 2100;
         
+        //store the current playback state
+        this._isPlaying = false;
+
         //bind this instance of the AudioManager to all the methods that require a this reference during callbacks
         this.InitializeLoops = this.InitializeLoops.bind(this);
         this.InitializeEffects = this.InitializeEffects.bind(this);
@@ -97,7 +103,7 @@ export class AudioManager {
             clip.sound.loop = true;
             clip.sound.autoplay = true;
             clip.sound.muted = true;
-            clip.sound.volume = clip.volume;
+            clip.sound.volume = clip.volume * this._volume;
             //ensure playback does not "skip" when the loop restarts
             clip.sound.addEventListener('timeupdate', function(){
                 var buffer = .44;
@@ -112,23 +118,27 @@ export class AudioManager {
             for (let clip of effect.clips){
                 clip.autoplay = true;
                 clip.muted = true;
-                clip.volume = effect.volume;
+                clip.volume = effect.volume * this._volume;
             }
         }
     }
 
-    //PROPERTIES
-    get CurrentlyPlaying() {
-        return this._currentEffect ? this._currentEffect.name : "None";
+    get Volume() {
+        return this._volume * 100;
+    }
+    set Volume(value){
+        this._volume = value / 100;
+        for(let clip of this._loops){
+            clip.sound.volume = clip.volume * this._volume;
+        }
+        if (this._currentEffect.isPlaying){
+            this._currentEffect.effect.clips[this._currentEffect.clip].volume = this._currentEffect.effect.volume * this._volume;
+        }
     }
 
-    //MORE PROPERTIES TO ADD
-    //is the soundscape playing?
-    //is a sound effect playing?
-    //volume
-    
-    //manager can be in three possible states. Playing, paused or stopped.
-    //It can be either playing or paused. IsPlaying = false === IsPaused = true
+    get IsPlaying() {
+        return this._isPlaying;
+    }
 
     //CONTROLS
     Play(){
@@ -140,6 +150,8 @@ export class AudioManager {
 
         //begin update loop and store reference to its id
         this.UpdateLoop();
+
+        this._isPlaying = true;
     }
 
     InitializePlay(){
@@ -159,7 +171,13 @@ export class AudioManager {
     InitializeEffects(){
         //it is worth noting that "an" effect may contain multiple sound clips which are played randomly
         for (let effect of this._effects){
-            this._activeTimeouts.set(effect.name, this.RegisterEffect(effect));
+            if (effect === this._currentEffect.effect){
+                this._currentEffect.effect.clips[this._currentEffect.clip].play();
+            } else {
+                if (!this._activeTimeouts.get(effect.name)) {
+                    this._activeTimeouts.set(effect.name, this.RegisterEffect(effect));
+                }
+            }
         }
     }
 
@@ -171,6 +189,8 @@ export class AudioManager {
 
     Pause() {
         //pause playback and continue where we left off when play resumes
+        this.PauseAll();
+        this._isPlaying = false;
     }
 
     //stop all playback and clean up all processes
@@ -178,9 +198,7 @@ export class AudioManager {
         this.Destroy();
     }
 
-    //should be called when this object is no longer required
-    Destroy(){
-
+    PauseAll(){
         //stop update loop
         clearTimeout(this._currentUpdateId);
 
@@ -193,6 +211,11 @@ export class AudioManager {
         if (this._currentEffect.isPlaying){
             this._currentEffect.effect.clips[this._currentEffect.clip].pause();
         }
+    }
+    //should be called when this object is no longer required
+    Destroy(){
+       
+        this.PauseAll();
 
         for (let id of this._activeTimeouts){
             if (id) {
@@ -207,12 +230,15 @@ export class AudioManager {
     //called every 500 ms when the audio manager updates itself
     Update(){
         //handle terminating conditions
+
+        if (!this._isPlaying || this._currentEffect.isPlaying || this._effectQueue.length === 0) return;
         let timeSinceLastSound = Math.floor(Date.now()) - this._soundFinishedAt;
-        if (this._currentEffect.isPlaying || timeSinceLastSound < this._minTimeBetweenEffects || this._effectQueue.length === 0) return;
+        if (timeSinceLastSound < this._minTimeBetweenEffects) return;
         
         //we are free to play a sound effect
         let { effect, clip} = this._effectQueue.Dequeue();
         effect.clips[clip].muted = false;
+        effect.clips[clip].volume = effect.volume * this._volume;
         effect.clips[clip].play();
 
         //set the state of the audio manager to record the currently playing effect
@@ -262,6 +288,7 @@ class EffectQueue {
     }
 
     Enqueue(effect){
+        console.log(this.length);
         return this._effects.push(effect);
     }
 

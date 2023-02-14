@@ -4,7 +4,6 @@ import { JournalEntry } from "../components/JournalEntry.component";
 import { JournalBreadcrumbs } from "../components/JournalBreadcrumbs.component";
 //import { JournalSearch } from "../components/JournalSearch.component";
 import { /*Link,*/ useParams } from 'react-router-dom';
-import { Soundscape } from "../components/Soundscape.component";
 
 export const Journal = () => {
 
@@ -25,7 +24,6 @@ export const Journal = () => {
     return(
         <>
             <JournalBreadcrumbs path={dataNode.data.fullPath} />
-            <Soundscape />
         
             {/*<JournalSearch onChange={loadEntry} />*/}
             <JournalEntry entryNode={dataNode}/>

@@ -1,0 +1,81 @@
+#page-controls{
+    display: flex;
+    position: fixed;
+    align-content: center;
+    justify-content: center;
+    width: auto;
+    right: -139px;
+    top: 70%;
+    background-color: var(--journal-100);
+    padding: 0.3em 0 0.3em 0;
+    border-radius: 20px 0 0 20px;
+    transition: all 500ms 0ms ease-in-out;
+    z-index: 100;
+}
+
+#on-canvas{
+    display: flex;
+    justify-content: space-around;
+    flex-grow: 1;
+    padding-right: 0.15em;
+}
+
+#slide-out {
+    display: flex;
+    align-items: center;
+}
+
+#controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-grow: 1;
+}
+
+#controls #scroll-top {
+    margin-bottom: 0.1em;
+}
+
+
+#off-canvas{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    padding-left: 0.15em;
+    padding-right: 0.2em;
+}
+
+#volume-controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+    padding-bottom: 0.2em;
+}
+
+#volume-controls label {
+    color: black;
+    font-size: 16px;
+    flex-grow: 0;
+    flex-shrink: 1;
+    align-self: center;
+}
+
+#playback-controls {
+    display: flex;
+    justify-content: center;
+}
+
+#playback-controls #toggle-playback {
+    margin-right: 0.1em;
+}
+
+#playback-controls #toggle-stop {
+    margin-left: 0.1em;
+    margin-right: 0.2em;
+}
+
+#playback-controls #toggle-mute {
+    margin-right: 0.1em;
+}
