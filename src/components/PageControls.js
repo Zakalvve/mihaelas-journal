@@ -25,7 +25,7 @@ export const PageControls = () => {
             document.getElementById("page-controls").style.transform = "translate(0,0)";
             setIsSlide(false);
         } else {
-            document.getElementById("page-controls").style.transform = "translate(-190px,0)";
+            document.getElementById("page-controls").style.transform = "translate(-170px,0)";
             setIsSlide(true);
         }
     };

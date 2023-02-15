@@ -1,10 +1,11 @@
 #page-controls{
+    font-size: 16px;
     display: flex;
     position: fixed;
     align-content: center;
     justify-content: center;
     width: auto;
-    right: -190px;
+    right: -170px;
     top: 70%;
     background-color: var(--journal-100);
     padding: 0.3em 0 0.3em 0;
@@ -56,7 +57,6 @@
 
 #volume-controls label {
     color: black;
-    font-size: 16px;
     flex-grow: 0;
     flex-shrink: 1;
     align-self: center;
