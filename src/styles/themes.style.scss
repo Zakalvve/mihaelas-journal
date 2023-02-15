@@ -219,7 +219,7 @@
     padding: 0, 13em;
   }
 
-  @media only screen and  (min-width : map-get($grid-breakpoints, md)){
+  @media only screen and (min-width : map-get($grid-breakpoints, md)){
     .navbar-nav, .nav-link{
         transition: transform 400ms 0ms ease-out;
     }
@@ -279,7 +279,7 @@
   }
 
   //BREADCRUMBS
-  @media only screen and (min-width: map-get($grid-breakpoints, md)){
+  @media only screen and (min-width: map-get($grid-breakpoints, lg)){
     .breadcrumb { 
         list-style: none; 
         overflow: hidden; 
