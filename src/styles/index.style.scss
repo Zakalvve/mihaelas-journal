@@ -2,11 +2,17 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'source sans pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--tertiary-500);
+}
+
+h1 {
+  color: var(--primary-600);
+  font-family: Metamorphous, serif;
 }
 
 code {
@@ -17,4 +23,22 @@ code {
 svg {
   width: 1em;
   height: 1em;
+}
+
+em {
+  color: var(--primary-700);
+}
+
+blockquote{
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0px;
+  margin-right: 0px;
+  border-left: 7px #416474 solid;
+  border-right: 7px #416474 solid;
+  border-radius: 10px;
+  font-size: 1.2em;
+  line-height: 1.5em;
 }
