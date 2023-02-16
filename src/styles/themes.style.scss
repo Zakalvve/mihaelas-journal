@@ -2,21 +2,6 @@
 // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
 @import "../../node_modules/bootstrap/scss/functions";
 
-/// Stroke font-character
-/// @param  {Integer} $stroke - Stroke width
-/// @param  {Color}   $color  - Stroke color
-/// @return {List}            - text-shadow list
-@function stroke($stroke, $color) {
-  $shadow: ();
-  $from: $stroke*-1;
-  @for $i from $from through $stroke {
-   @for $j from $from through $stroke {
-      $shadow: append($shadow, $i*1px $j*1px 0 $color, comma);
-    }
-  }
-  @return $shadow;
-}
-
 // 2. Include any default variable overrides here
 
 
@@ -141,44 +126,108 @@
   $space-300: tint-color($space, 40%);
   $space-400: tint-color($space, 20%);
   $space-500: $space;
+  $space-600: shade-color($space, 20%);
+  $space-700: shade-color($space, 40%);
+  $space-800: shade-color($space, 60%);
+  $space-900: shade-color($space, 80%);
 
   $wisp-100: tint-color($wisp, 80%);
   $wisp-200: tint-color($wisp, 60%);
   $wisp-300: tint-color($wisp, 40%);
   $wisp-400: tint-color($wisp, 20%);
   $wisp-500: $wisp;
+  $wisp-600: shade-color($wisp, 20%);
+  $wisp-700: shade-color($wisp, 40%);
+  $wisp-800: shade-color($wisp, 60%);
+  $wisp-900: shade-color($wisp, 80%);
 
   --bs-body-color: #{$mocha-500};
   --bs-body-color-rgb: #{to-rgb($mocha-500)};
   --bs-body-bg: #{$journal-100};
   --bs-body-bg-rgb: #{to-rgb($journal-100)};
-  --bg-image-top: url("https://www.worldanvil.com/uploads/images/9a85062935f039ee4f87624f4177cbce.png");
+  --bg-image-top: url("../../public/banner-image-1080.webp");
+  --bg-image-bottom: url("../../public/around-the-campfire.webp");
+  --bg-image-content: url("https://www.worldanvil.com/uploads/images/9a85062935f039ee4f87624f4177cbce.png");
   --nav-shadow: transparent;
+  --toggler-bg-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 30 30%27%3e%3cpath stroke=%27rgba%28255, 255, 255, 0.9%29%27 stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 stroke-width=%272%27 d=%27M4 7h22M4 15h22M4 23h22%27/%3e%3c/svg%3e");
 
-  --primary:#{$mob};
-  --primary-800: #{$mob-800};
-  --primary-700: #{$mob-700};
-  --primary-600: #{$mob-600};
-  --primary-500: #{$mob-500};
-  --primary-400: #{$mob-400};
-  --primary-300: #{$mob-300};
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-xxl: 1400px;
+
+  --primary-100: #{$mob-100};
   --primary-200: #{$mob-200};
-
-  --secondary:#{$katya};
-  --secondary-800: #{$katya-800};
-  --secondary-600: #{$katya-600};
-  --secondary-400: #{$katya-400};
+  --primary-300: #{$mob-300};
+  --primary-400: #{$mob-400};
+  --primary-500: #{$mob-500};
+  --primary-600: #{$mob-600};
+  --primary-700: #{$mob-700};
+  --primary-800: #{$mob-800};
+  --primary-900: #{$mob-900};
+ 
+  --secondary-100: #{$katya-100};
   --secondary-200: #{$katya-200};
+  --secondary-300: #{$katya-300};
+  --secondary-400: #{$katya-400};
+  --secondary-500: #{$katya-500};
+  --secondary-600: #{$katya-600};
+  --secondary-700: #{$katya-700};
+  --secondary-800: #{$katya-800};
+  --secondary-900: #{$katya-900};
+  
+  --tertiary-100:#{$mocha-100};
+  --tertiary-200:#{$mocha-200};
+  --tertiary-300:#{$mocha-300};
+  --tertiary-400:#{$mocha-400};
+  --tertiary-500:#{$mocha-500};
+  --tertiary-600:#{$mocha-600};
+  --tertiary-700:#{$mocha-700};
+  --tertiary-800:#{$mocha-800};
+  --tertiary-900:#{$mocha-900};
 
-  --journal-100:#{$journal-100};
-  --journal-200:#{$journal-200};
-  --journal-300:#{$journal-300};
-  --journal-400:#{$journal-400};
-  --journal-500:#{$journal-500};
-  --journal-600:#{$journal-600};
-  --journal-700:#{$journal-700};
-  --journal-800:#{$journal-800};
-  --journal-900:#{$journal-900};
+  --shade-100:#{$eggshell-100};
+  --shade-200:#{$eggshell-200};
+  --shade-300:#{$eggshell-300};
+  --shade-400:#{$eggshell-400};
+  --shade-500:#{$eggshell-500};
+  --shade-600:#{$eggshell-600};
+  --shade-700:#{$eggshell-700};
+  --shade-800:#{$eggshell-800};
+  --shade-900:#{$eggshell-900};
+
+  --bg-light-100:#{$journal-100};
+  --bg-light-200:#{$journal-200};
+  --bg-light-300:#{$journal-300};
+  --bg-light-400:#{$journal-400};
+  --bg-light-500:#{$journal-500};
+  --bg-light-600:#{$journal-600};
+  --bg-light-700:#{$journal-700};
+  --bg-light-800:#{$journal-800};
+  --bg-light-900:#{$journal-900};
+
+  --bg-dark-100:#{$space-100};
+  --bg-dark-200:#{$space-200};
+  --bg-dark-300:#{$space-300};
+  --bg-dark-400:#{$space-400};
+  --bg-dark-500:#{$space-500};
+  --bg-dark-600:#{$space-600};
+  --bg-dark-700:#{$space-700};
+  --bg-dark-800:#{$space-800};
+  --bg-dark-900:#{$space-900};
+
+  --border-100:#{$wisp-100};
+  --border-200:#{$wisp-200};
+  --border-300:#{$wisp-300};
+  --border-400:#{$wisp-400};
+  --border-500:#{$wisp-500};
+  --border-600:#{$wisp-600};
+  --border-700:#{$wisp-700};
+  --border-800:#{$wisp-800};
+  --border-900:#{$wisp-900};
+
 
   //Container
   .container {
@@ -196,80 +245,16 @@
     --bs-navbar-toggler-padding-y: 0.25rem;
     --bs-navbar-toggler-padding-x: 0.75rem;
     --bs-navbar-toggler-font-size: 1.25rem;
-    --bs-navbar-toggler-icon-bg: url(data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 30 30%27%3e%3cpath stroke=%27rgba%280, 0, 0, 0.55%29%27 stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 stroke-width=%272%27 d=%27M4 7h22M4 15h22M4 23h22%27/%3e%3c/svg%3e);
-    --bs-navbar-toggler-border-color: rgba(0, 0, 0, 0.1);
+    --bs-navbar-toggler-icon-bg: var(--toggler-bg-image);
+    --bs-navbar-toggler-border-color: #FFF;
     --bs-navbar-toggler-border-radius: 0.375rem;
     --bs-navbar-toggler-focus-width: 0.15rem;
     --bs-navbar-toggler-transition: box-shadow 0.5s ease-in-out;
-
-    justify-content: center;
-    z-index: 30;
   }
 
   .navbar-nav {
     --bs-nav-link-font-weight: 400;
     --bs-nav-link-padding-y: 1em;
-  }
-
-  .navbar-collapse {
-    text-align: center;
-    background-color: #{$space};
-    border: 1px solid #{$wisp};
-    border-radius: 3px;
-    padding: 0, 13em;
-  }
-
-  @media only screen and (min-width : map-get($grid-breakpoints, md)){
-    .navbar-nav, .nav-link{
-        transition: transform 400ms 0ms ease-out;
-    }
-
-    .navbar-collapse {
-        background-color: transparent;
-        border: none;
-        min-width: none;
-    }
-
-    .nav-link:hover{
-        transform: translate(0, -0.3em)
-      }
-  }
-
-  .navbar-toggler {
-    border-color: white;
-  }
-
-  .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 30 30%27%3e%3cpath stroke=%27rgba%28255, 255, 255, 0.9%29%27 stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 stroke-width=%272%27 d=%27M4 7h22M4 15h22M4 23h22%27/%3e%3c/svg%3e")
-  }
-
-  /// FOOTER THEME
-  footer .navbar {
-    background-color: transparent;
-  }
-
-  .footer-theme {
-    position: absolute;
-    bottom:0;
-    left: 0;
-    right: 0;
-    background: url("../../public/around-the-campfire.webp") no-repeat center bottom;
-    background-size: cover;
-    height: 997px;
-    min-height: 100vh;
-    font-size: 1.2rem;
-  }
-
-  .footer-theme footer {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      color: #FFFFFF;
-  }
-
-  .footer-theme p {
-      margin: 0;
   }
 
   .breadcrumb {
@@ -278,168 +263,18 @@
     --bs-breadcrumb-item-active-color: #6c757d;
   }
 
-  //BREADCRUMBS
-  @media only screen and (min-width: map-get($grid-breakpoints, lg)){
-    .breadcrumb { 
-        list-style: none; 
-        overflow: hidden; 
-        font: 18px Sans-Serif;
-        margin: 1em 0 1em 0;
-        border-radius: 5px 0 0 5px;
-    }
-    .breadcrumb .breadcrumb-item { 
-        float: left; 
-    }
-    .breadcrumb .breadcrumb-item a {
-        color: white;
-        text-decoration: none; 
-        padding: 10px 0 10px 3em;
-        background: darkred; /* fallback color */
-        background: var(--primary-700);
-        position: relative; 
-        display: block;
-        float: left;
-        transition: all 400ms 0ms ease;
-    }
-
-    .breadcrumb .breadcrumb-item a::after { 
-        content: " "; 
-        display: block; 
-        width: 0; 
-        height: 0;
-        border-top: 50px solid transparent; /* Go big on the size, and let overflow hide */
-        border-bottom: 50px solid transparent;
-        border-left: 3.3em solid var(--primary-700);
-        position: absolute;
-        top: 50%;
-        margin-top: -50px; 
-        left: 100%;
-        z-index: 2;
-        transition: all 400ms 0ms ease;
-    }
-
-    .breadcrumb .breadcrumb-item a::before { 
-        content: " "; 
-        display: block; 
-        width: 0; 
-        height: 0;
-        border-top: 50px solid transparent;       
-        border-bottom: 50px solid transparent;
-        border-left: 3.3em solid var(--journal);
-        position: absolute;
-        top: 50%;
-        margin-top: -50px; 
-        margin-left: 1px;
-        left: 100%;
-        z-index: 1;
-        transition: all 400ms 0ms ease;
-    }
-
-    .breadcrumb .breadcrumb-item:first-child a {
-        padding-left: 10px;
-    }
-    .breadcrumb .breadcrumb-item:nth-child(2) a       { background:        var(--primary-700); }
-    .breadcrumb .breadcrumb-item:nth-child(2) a:after { border-left-color: var(--primary-700); }
-    .breadcrumb .breadcrumb-item:nth-child(3) a       { background:        var(--primary-700); }
-    .breadcrumb .breadcrumb-item:nth-child(3) a:after { border-left-color: var(--primary-700); }
-    .breadcrumb .breadcrumb-item:nth-child(4) a       { background:        var(--primary-700); }
-    .breadcrumb .breadcrumb-item:nth-child(4) a:after { border-left-color: var(--primary-700); }
-    .breadcrumb .breadcrumb-item:nth-child(5) a       { background:        var(--primary-700); }
-    .breadcrumb .breadcrumb-item:nth-child(5) a:after { border-left-color: var(--primary-700); }
-    .breadcrumb .breadcrumb-item:last-child a {
-        background-color: #{$mob};
-        pointer-events: none;
-        cursor: default;
-    }
-    .breadcrumb .breadcrumb-item:last-child a:after {
-      border-left-color: #{$mob};
-    }
-
-    .breadcrumb .breadcrumb-item a:hover { 
-        background: var(--primary-800); 
-    }
-    .breadcrumb .breadcrumb-item a:hover:after { 
-        border-left-color: var(--primary-800) !important; 
-    }
-  }
-
-  //Hero
-  .hero {
-    background: url("../../public/banner-image-1080.webp") no-repeat center bottom;
-    background-size: cover;
-    height: 15em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-
-    /// Stroke font-character
-  /// @param  {Integer} $stroke - Stroke width
-  /// @param  {Color}   $color  - Stroke color
-  /// @return {Style}           - text-shadow
-  @mixin stroke($stroke, $color) {
-    text-shadow: stroke($stroke, $color);
-  }
-
-  .hero h1 {
-      color: #f0cb18;
-      font-size: 80px;
-      font-family: Dungeon;
-      padding-top: 0.7em;
-      @include stroke(3, black);
-  }
-
-  @media only screen and (min-width: 800px){
-      .hero h1 {
-          font-size: 140px;
-      }
-  }
-
-  @media only screen and (min-width: 1200px){
-      .hero h1 {
-          font-size: 180px;
-      }
-  }
-
-  #journal-entry {
-    text-align: justify;
-    font-size: 13px;
-  }
-
-  #journal-entry h1 {
-      margin: 1.3rem 0 1.3rem 0;
-      color: #{$mob-600};
-      font-family: Metamorphous, serif;
-  }
-  #journal-entry h1::after{
-      content: "";
-      padding-top: 0.2em;
-      display: block;
-      width: 100%;
-      border-bottom: 2px solid #{$mocha};
-  }
-
-  #journal-entry p {
-      font-size: 1.2em;
-      line-height: 1.4em;
-      font-family: "source sans pro", sans-serif;
-      word-spacing: 0.1em;
-      margin-bottom: 1.4rem;
-      color: #{$mocha};
-  }
   h1 {
-    color: #{$mob-600};
+    color: var(--primary-600);
   }
 
   .app {
-    color: #{$mocha};
+    color: var(--tertiary-500);
     background-color: black;
   }
 
   .journal-page {
     background-color: #ddc9a863;
-    background-image: var(--bg-image-top);
+    background-image: var(--bg-image-content);
     box-shadow: inset 0 0 0 1000px #ddc9a863;
     padding-bottom: 1.5rem;
   }
@@ -452,15 +287,15 @@
     --bs-btn-font-weight: 400;
     --bs-btn-line-height: 1.5;
     --bs-btn-color: white;
-    --bs-btn-bg: #{$mob-600};
+    --bs-btn-bg: var(--primary-600);
     --bs-btn-border-width: 1px;
     --bs-btn-border-color: transparent;
     --bs-btn-hover-border-color: transparent;
-    --bs-btn-active-color: #{$mob-600};
+    --bs-btn-active-color: var(--primary-600);
     --bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
     --bs-btn-disabled-opacity: 0.65;
     --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);
-    --bs-btn-hover-bg: #{$mob-800};
+    --bs-btn-hover-bg: var(--primary-800);
     --bs-btn-hover-color: var(--bs-btn-color);
   }
 

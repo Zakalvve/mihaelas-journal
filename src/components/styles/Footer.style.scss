@@ -1,0 +1,28 @@
+ /// FOOTER THEME
+ footer .navbar {
+    background-color: transparent;
+  }
+
+  .footer-theme {
+    position: absolute;
+    bottom:0;
+    left: 0;
+    right: 0;
+    background: var(--bg-image-bottom) no-repeat center bottom;
+    background-size: cover;
+    height: 997px;
+    min-height: 100vh;
+    font-size: 1.2rem;
+  }
+
+  .footer-theme footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      color: #FFFFFF;
+  }
+
+  .footer-theme p {
+      margin: 0;
+  }

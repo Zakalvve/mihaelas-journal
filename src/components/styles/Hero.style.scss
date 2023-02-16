@@ -1,0 +1,53 @@
+  //Hero
+  .hero {
+    background: var(--bg-image-top) no-repeat center bottom;
+    background-size: cover;
+    height: 15em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+    /// Stroke font-character
+    /// @param  {Integer} $stroke - Stroke width
+    /// @param  {Color}   $color  - Stroke color
+    /// @return {List}            - text-shadow list
+    @function stroke($stroke, $color) {
+        $shadow: ();
+        $from: $stroke*-1;
+        @for $i from $from through $stroke {
+        @for $j from $from through $stroke {
+            $shadow: append($shadow, $i*1px $j*1px 0 $color, comma);
+        }
+        }
+        @return $shadow;
+    }
+
+    /// Stroke font-character
+  /// @param  {Integer} $stroke - Stroke width
+  /// @param  {Color}   $color  - Stroke color
+  /// @return {Style}           - text-shadow
+  @mixin stroke($stroke, $color) {
+    text-shadow: stroke($stroke, $color);
+  }
+
+  .hero h1 {
+      color: var(--secondary-500);
+      font-size: 80px;
+      font-family: Dungeon;
+      padding-top: 0.7em;
+      @include stroke(2, black);
+  }
+
+  @media only screen and (min-width: 800px){
+      .hero h1 {
+          font-size: 140px;
+      }
+  }
+
+  @media only screen and (min-width: 1200px){
+      .hero h1 {
+          font-size: 180px;
+      }
+  }

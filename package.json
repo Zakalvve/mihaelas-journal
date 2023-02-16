@@ -19,8 +19,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "parse-md": "node ./src/assets/journal/parser.js",
     "start": "react-scripts start",
+    "parse-start": "npm run parse-md && npm start",
     "build": "react-scripts build",
+    "parse-build": "npm run prase-md && npm build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

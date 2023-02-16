@@ -3,8 +3,9 @@ import MarkdownView from 'react-showdown';
 import { Link } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import "./styles/JournalEntry.style.scss";
 
-export const JournalEntry = ({entryNode, onClick}) => {
+export const JournalEntry = ({entryNode}) => {
     const [markdown, setMarkdown] = useState(entryNode.data.file.data);
     const [loadError, /*setLoadError*/] = useState(false);
 
@@ -12,9 +13,21 @@ export const JournalEntry = ({entryNode, onClick}) => {
         setMarkdown(entryNode.data.file.data);
     },[entryNode]);
 
-    /*const handleLoadError = () => {
-        setLoadError(true);
-    }*/
+    const scrollToTop = (smooth = false) => {
+        if (smooth) {
+            window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+            });
+        } else {
+            document.documentElement.scrollTop = 0;
+        }
+    };
+
+    const handleScrollTop = () => {
+        scrollToTop(true);
+    }
+
     const previousId = () => {
         if (entryNode.data.traversal.last)
             return entryNode.data.traversal.last.data.id;
@@ -32,12 +45,12 @@ export const JournalEntry = ({entryNode, onClick}) => {
             {loadError ? <p>Error</p> : <MarkdownView markdown={markdown}/>}
             <Row className="py-2">
                 <Col className="text-center" md={{span: 2, offset: 1}} xs={{span:3, offset:1}}>
-                    <Link className="btn btn-nav" to={`/journal/${previousId()}`}>
+                    <Link onClick={handleScrollTop} className="btn btn-nav" to={`/journal/${previousId()}`}>
                         <i className="bi bi-arrow-left"></i>
                     </Link>
                 </Col>
                 <Col className="text-center" md={{span:2, offset: 6}} xs={{span: 3, offset:4}}>
-                    <Link className="btn btn-nav" to={`/journal/${nextId()}`}>
+                    <Link onClick={handleScrollTop} className="btn btn-nav" to={`/journal/${nextId()}`}>
                         <i className="bi bi-arrow-right"></i>
                     </Link>
                 </Col>

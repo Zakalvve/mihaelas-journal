@@ -1,0 +1,26 @@
+#journal-entry {
+    text-align: justify;
+    font-size: 13px;
+  }
+
+  #journal-entry h1 {
+      margin: 1.3rem 0 1.3rem 0;
+      color: var(--primary-600);
+      font-family: Metamorphous, serif;
+  }
+  #journal-entry h1::after{
+      content: "";
+      padding-top: 0.2em;
+      display: block;
+      width: 100%;
+      border-bottom: 2px solid var(--tertiary-500);
+  }
+
+  #journal-entry p {
+      font-size: 1.2em;
+      line-height: 1.4em;
+      font-family: "source sans pro", sans-serif;
+      word-spacing: 0.1em;
+      margin-bottom: 1.4rem;
+      color: var(--tertiary-500);
+  }

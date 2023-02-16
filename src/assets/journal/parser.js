@@ -3,7 +3,7 @@ const readline = require('readline');
 
 let directory = {  };
 
-async function processLineByLine() {
+async function ParseMarkdown() {
 
     function monthToNumber(month){
         switch (month){
@@ -173,14 +173,13 @@ async function processLineByLine() {
         }
     }
     
-  const fileStream = fs.createReadStream('./master.md');
+  const fileStream = fs.createReadStream('./src/assets/journal/master.md');
 
   const rl = readline.createInterface({
     input: fileStream,
     crlfDelay: Infinity
   });
 
-  //let newFiles = [];
   let sectionInfo = {};
   let data = "";
   let firstSection = true;
@@ -189,11 +188,6 @@ async function processLineByLine() {
     let words = line.split(" ");
     if (/\d/.test(words[0])){
         if (!firstSection){
-/*             newFiles.push({
-                header: sectionInfo,
-                data: data
-            }); */
-
             addEntryToDirectory({
                 header: sectionInfo,
                 data: data
@@ -211,42 +205,22 @@ async function processLineByLine() {
     }
   }
 
+  if (sectionInfo.fileName){
+    addEntryToDirectory({
+        header: sectionInfo,
+        data: data
+    });
+  }
+
   console.log(directory);
   var json = JSON.stringify(directory);
-  fs.writeFile(`./directory.json`, json, function(err) {
+  fs.writeFile(`./src/assets/journal/directory.json`, json, function(err) {
     if (err) {
         console.log(err);
     } else {
         console.log("Json content file was saved!");
     }
    });
-
-  //create json file
-/*   var arrayAsJson = JSON.stringify(newFiles);
-  fs.writeFile(`./site-content.json`, arrayAsJson, function(err) {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log("Json content file was saved!");
-    }
-   }); */
-
-  //create new markdown files
-/*   newFiles.forEach(function(file) {
-    i = newFiles.indexOf(file);
-    (function (i) {
-        console.log(i);
-        fs.mkdirSync(file.header.path, { recursive: true });
-        fs.writeFile(`${file.header.path + file.header.fileName}.md`, file.data, function(err) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log("Input" + i + " file was saved!");
-        }
-        });
-        console.log(i);
-    })(i);
-    }); */
 }
 
-processLineByLine();
+ParseMarkdown();

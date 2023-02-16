@@ -1,0 +1,32 @@
+#volume-controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+    padding-bottom: 0.2em;
+}
+
+#volume-controls label {
+    color: black;
+    flex-grow: 0;
+    flex-shrink: 1;
+    align-self: center;
+}
+
+#playback-controls {
+    display: flex;
+    justify-content: center;
+}
+
+#playback-controls #toggle-playback {
+    margin-right: 0.1em;
+}
+
+#playback-controls #toggle-stop {
+    margin-left: 0.1em;
+    margin-right: 0.2em;
+}
+
+#playback-controls #toggle-mute {
+    margin-right: 0.1em;
+}

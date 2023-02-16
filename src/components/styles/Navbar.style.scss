@@ -1,0 +1,31 @@
+//A theme is applied in theme.scss which re-maps bootstrap variables on certain components.
+//I have seperated out actual changes to style and layout into their own component scss files
+//this way new themes can be created without changing the overall look/behaviour of the component
+.navbar {
+    justify-content: center;
+    z-index: 30;
+}
+
+.navbar-collapse {
+    text-align: center;
+    background-color: var(--bg-dark-500);
+    border: 1px solid var(--border-500);
+    border-radius: 3px;
+    padding: 0, 13em;
+  }
+
+  @media only screen and (min-width: 768px){
+    .navbar-nav, .nav-link{
+        transition: transform 400ms 0ms ease-out;
+    }
+
+    .navbar-collapse {
+        background-color: transparent;
+        border: none;
+        min-width: none;
+    }
+
+    .nav-link:hover{
+        transform: translate(0, -0.3em)
+      }
+  }

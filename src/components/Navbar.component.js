@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import {default as BsNavbar} from 'react-bootstrap/Navbar';
 import { Link } from "react-router-dom";
+import "./styles/Navbar.style.scss";
 
 export const Navbar = () => {
 

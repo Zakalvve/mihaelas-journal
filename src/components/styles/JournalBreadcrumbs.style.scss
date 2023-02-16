@@ -1,0 +1,84 @@
+ //BREADCRUMBS
+ @media only screen and (min-width: 992px){
+    .breadcrumb { 
+        list-style: none; 
+        overflow: hidden; 
+        font: 18px Sans-Serif;
+        margin: 1em 0 1.4em 0;
+        border-radius: 5px 0 0 5px;
+    }
+    .breadcrumb .breadcrumb-item { 
+        float: left; 
+    }
+    .breadcrumb .breadcrumb-item a {
+        color: white;
+        text-decoration: none; 
+        padding: 10px 0 10px 3em;
+        background: darkred; /* fallback color */
+        background: var(--primary-700);
+        position: relative; 
+        display: block;
+        float: left;
+        transition: all 400ms 0ms ease;
+    }
+
+    .breadcrumb .breadcrumb-item a::after { 
+        content: " "; 
+        display: block; 
+        width: 0; 
+        height: 0;
+        border-top: 50px solid transparent; /* Go big on the size, and let overflow hide */
+        border-bottom: 50px solid transparent;
+        border-left: 3.3em solid var(--primary-700);
+        position: absolute;
+        top: 50%;
+        margin-top: -50px; 
+        left: 100%;
+        z-index: 2;
+        transition: all 400ms 0ms ease;
+    }
+
+    .breadcrumb .breadcrumb-item a::before { 
+        content: " "; 
+        display: block; 
+        width: 0; 
+        height: 0;
+        border-top: 50px solid transparent;       
+        border-bottom: 50px solid transparent;
+        border-left: 3.3em solid var(--bg-light-200);
+        position: absolute;
+        top: 50%;
+        margin-top: -50px; 
+        margin-left: 1px;
+        left: 100%;
+        z-index: 1;
+        transition: all 400ms 0ms ease;
+    }
+
+    .breadcrumb .breadcrumb-item:first-child a {
+        padding-left: 10px;
+    }
+    .breadcrumb .breadcrumb-item:nth-child(2) a       { background:        var(--primary-700); }
+    .breadcrumb .breadcrumb-item:nth-child(2) a:after { border-left-color: var(--primary-700); }
+    .breadcrumb .breadcrumb-item:nth-child(3) a       { background:        var(--primary-700); }
+    .breadcrumb .breadcrumb-item:nth-child(3) a:after { border-left-color: var(--primary-700); }
+    .breadcrumb .breadcrumb-item:nth-child(4) a       { background:        var(--primary-700); }
+    .breadcrumb .breadcrumb-item:nth-child(4) a:after { border-left-color: var(--primary-700); }
+    .breadcrumb .breadcrumb-item:nth-child(5) a       { background:        var(--primary-700); }
+    .breadcrumb .breadcrumb-item:nth-child(5) a:after { border-left-color: var(--primary-700); }
+    .breadcrumb .breadcrumb-item:last-child a {
+        background-color: var(--primary-500);
+        pointer-events: none;
+        cursor: default;
+    }
+    .breadcrumb .breadcrumb-item:last-child a:after {
+      border-left-color: var(--primary-500);
+    }
+
+    .breadcrumb .breadcrumb-item a:hover { 
+        background: var(--primary-800); 
+    }
+    .breadcrumb .breadcrumb-item a:hover:after { 
+        border-left-color: var(--primary-800) !important; 
+    }
+  }

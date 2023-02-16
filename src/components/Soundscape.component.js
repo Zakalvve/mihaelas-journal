@@ -1,5 +1,6 @@
 import { AudioManager, AudioData } from "../modules/Audio";
 import { useState, useEffect } from "react";
+import "./styles/Soundscape.style.scss";
 
 export const Soundscape = () => {
 
