@@ -21,9 +21,9 @@
   "scripts": {
     "parse-md": "node ./src/assets/journal/parser.js",
     "start": "react-scripts start",
-    "parse-start": "npm run parse-md && npm start",
+    "parse-start": "npm run parse-md && npm run start",
     "build": "react-scripts build",
-    "parse-build": "npm run parse-md && npm build",
+    "parse-build": "npm run parse-md && npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
