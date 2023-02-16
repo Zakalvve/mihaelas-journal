@@ -445,7 +445,3 @@ Just like making deal with devil. Or whatever that one armed thing was that we m
 Pish, I'm tired. That was long walk, it felt longer than 12 hours, but light hasn't changed. I don't understand days in this place. Eary said how rather than east and west they have dawn side and dusk side. Or something like that, she said it long time ago. I thought she meant that's just what they call east and west. After all, sun dose rise in east, so calling it dawn side makes sense. I've encountered stranger cultural differences. But as this place is strangeness incarnate and days haven't moved normally I can't help but wonder. Dose she mean it more literally? But then why is this place so dark? We went south. Surely it can't be like that, sdurely there's days here. It is strange place indeed.
 
 But praise Llirra that Babcha stopped me giving that key to stupid bird earlier. I didn't think anything of it, it was just some key to me. but when Babcha used magic on it, she revealed it had power and now I feel it's potential. This is going to be interesting. Probably good job Mały wasn't here to contest it and that I got hold of it first. I know what he would have done with it. But still, I do feel for Mały, bound by that oath. I hope he finds something to appease his friend. Maybe I should keep eye open on his behalf. I can't wait to see him again. I'll be thinking of him tonight, may Llirra keep him safe.
-
-21st of Domak 862nd Year Age of Air, Grimm Court
-
-Wow that was Grimm!
