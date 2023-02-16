@@ -284,7 +284,7 @@ class EffectQueue {
     }
 
     get isEmpty() {
-        return this._effects.lenght === 0;
+        return this._effects.length === 0;
     }
 
     Enqueue(effect){
