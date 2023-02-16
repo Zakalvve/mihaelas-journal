@@ -23,7 +23,7 @@
     "start": "react-scripts start",
     "parse-start": "npm run parse-md && npm start",
     "build": "react-scripts build",
-    "parse-build": "npm run prase-md && npm build",
+    "parse-build": "npm run parse-md && npm build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
