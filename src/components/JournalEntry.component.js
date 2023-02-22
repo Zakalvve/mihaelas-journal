@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import "./styles/JournalEntry.style.scss";
+import { scrollToTop } from '../modules/Helpers';
 
 export const JournalEntry = ({entryNode}) => {
     const [markdown, setMarkdown] = useState(entryNode.data.file.data);
@@ -12,17 +13,6 @@ export const JournalEntry = ({entryNode}) => {
     useEffect(() => {
         setMarkdown(entryNode.data.file.data);
     },[entryNode]);
-
-    const scrollToTop = (smooth = false) => {
-        if (smooth) {
-            window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-            });
-        } else {
-            document.documentElement.scrollTop = 0;
-        }
-    };
 
     const handleScrollTop = () => {
         scrollToTop(true);

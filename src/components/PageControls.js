@@ -1,18 +1,9 @@
 import "./styles/PageControls.style.scss";
 import { useState } from "react";
 import { Soundscape } from "./Soundscape.component";
+import { scrollToTop } from "../modules/Helpers";
 
 export const PageControls = () => {
-    const scrollToTop = (smooth = false) => {
-        if (smooth) {
-            window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-            });
-        } else {
-            document.documentElement.scrollTop = 0;
-        }
-    };
 
     const handleScrollTop = () => {
         scrollToTop(true);

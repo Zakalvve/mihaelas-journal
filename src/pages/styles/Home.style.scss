@@ -1,14 +1,8 @@
-.intro {
-    font-size: 22px;
-    text-align: justify;
-    line-height: 1.4em;
-    word-spacing: 0.1em;
-    margin-bottom: 1.4rem;
+
+.intro p {
+    margin-bottom: 0.3em;
 }
 
-.intro h1 {
-    color: var(--primary-600);
-}
 .intro h1::after{
     content: "";
     padding-top: 0.2em;
@@ -17,7 +11,13 @@
     border-bottom: 2px solid var(--tertiary-500);
 }
 
+.intro div.story-emphasis {
+    margin-top: 1.3em;
+}
+.intro div.story-emphasis em {
+    font-size: 1.3em;
+}
 .journal-link {
     text-align: start;
-    font-size: 1.3em;
+    font-size: 1em;
 }

@@ -1,6 +1,6 @@
     export const About = () => {
     return (
-        <div className="pt-5 d-flex flex-column h-100">
+        <div className="pt-3 d-flex flex-column h-100">
             <h1 className="mb-3">Welcome</h1>
 
             <p>This is the public place to browse the ups and downs of the rougish halfling, Mihaela Thorngage, as she adventures through the lands of Katya.</p>
