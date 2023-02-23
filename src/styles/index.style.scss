@@ -17,6 +17,10 @@ h1 {
   font-family: Metamorphous, serif;
 }
 
+h1.h-underline::after{
+
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
