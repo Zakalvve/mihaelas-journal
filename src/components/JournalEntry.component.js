@@ -32,7 +32,7 @@ export const JournalEntry = ({entryNode}) => {
 
     return (
         <div id="journal-entry">
-            {loadError ? <p>Error</p> : <MarkdownView markdown={markdown}/>}
+            {loadError ? <p>Error</p> : <MarkdownView markdown={markdown} options:{strikethrough:true}/>}
             <Row className="py-2">
                 <Col className="text-center" md={{span: 2, offset: 1}} xs={{span:3, offset:1}}>
                     <Link onClick={handleScrollTop} className="btn btn-nav" to={`/journal/${previousId()}`}>
