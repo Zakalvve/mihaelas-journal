@@ -31,8 +31,24 @@ header {
 }
 
 .journal-page{
+  background-color: #ddc9a863;
+  background-image: var(--bg-image-content);
+  box-shadow: inset 0 0 0 1000px #ddc9a863;
+  padding-bottom: 1.5rem;
   flex-grow: 1;
-  margin-bottom: 870px;
   min-height: 200px;
   border-radius: 20px;
+}
+
+#min-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+#content{
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 3rem 0;
 }

@@ -4,16 +4,33 @@
   }
 
   .footer-theme {
-    position: absolute;
+    position: relative;
     bottom:0;
     left: 0;
     right: 0;
-    background: var(--bg-image-bottom) no-repeat center bottom;
-    background-size: cover;
-    height: 997px;
+    height: 100vh;
     min-height: 100vh;
     font-size: 1.2rem;
     text-align: center;
+  }
+
+  .footer-theme img {
+    inset: 0;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    object-fit: cover;
+    object-position: bottom;
+    height: 100%;
+  }
+
+  .footer-theme::after {
+    position: absolute;
+    z-index: 20;
+    inset: 0;
+    height: 15%;
+    background-image: linear-gradient(black, transparent);
+    content: ""
   }
 
   .footer-theme footer {
@@ -21,9 +38,9 @@
       bottom: 0;
       left: 0;
       right: 0;
-      color: #FFFFFF;
   }
 
   .footer-theme p {
       margin: 0;
+      color: #FFFFFF;
   }

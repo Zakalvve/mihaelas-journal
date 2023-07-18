@@ -17,18 +17,20 @@ function App() {
     <Router>
       <div className="app">
         <Navbar/>
-        <main>
+        <main id='min-page'>
           <Hero />
-          <Container className="journal-page">
-            <Routes>
-              <Route path="/" element={<Home/>} />
-              <Route path="/journal-browse/:nodeId" element={<EntryBrowser/>} />
-              <Route path="/journal-browse" element={<EntryBrowser/>} />
-              <Route path="/journal/:entryId" element={<Journal/>} />
-              <Route path="/journal" element={<Journal/>}/>
-              <Route path="/about" element={<About/>} />
-            </Routes>
-          </Container>
+          <section id='content'>
+            <Container className="journal-page">
+              <Routes>
+                <Route path="/" element={<Home/>} />
+                <Route path="/journal-browse/:nodeId" element={<EntryBrowser/>} />
+                <Route path="/journal-browse" element={<EntryBrowser/>} />
+                <Route path="/journal/:entryId" element={<Journal/>} />
+                <Route path="/journal" element={<Journal/>}/>
+                <Route path="/about" element={<About/>} />
+              </Routes>
+            </Container>
+          </section>
         </main>
         <Footer />
         <PageControls />

@@ -46,10 +46,10 @@ export const Home = () => {
 
             <p><em>&emsp;"They?"</em></p>
 
-            <p><em>&emsp;"Of course! Mihaela was part of one of the most famous groups of adventurers to walk this fair land of Katya!"</em> He pauses for a few seconds aparently considering something.</p>
+            <p><em>&emsp;"Of course! Mihaela was part of one of the most famous groups of adventurers to walk this fair land of Katya!"</em> He pauses for a few seconds aparently considering something...</p>
             
-            <div className="story-emphasis journal-link flex-grow-1 d-flex flex-column-reverse p-3 pb-5">
-                <Link onClick={handleScrollTop} to={`/journal/${journalDirectory.getFirstEntryId()}`}><em>"But this is her story..."</em></Link>
+            <div className="story-emphasis flex-grow-1 d-flex flex-column-reverse p-3 pb-5">
+                <Link onClick={handleScrollTop} to={`/journal/${journalDirectory.getFirstEntryId()}`} className='journal-link journal-quote'>Let me tell you her story.</Link>
             </div>
         </div>
     );

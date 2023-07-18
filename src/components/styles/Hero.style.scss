@@ -1,11 +1,11 @@
   //Hero
   .hero {
-    background: var(--bg-image-top) no-repeat center bottom;
-    background-size: cover;
+    position: relative;
+/*     background: var(--bg-image-top) no-repeat center bottom;
+    background-size: cover; */
     height: 15em;
     display: flex;
     justify-content: center;
-    align-items: center;
     text-align: center;
   }
 
@@ -36,8 +36,18 @@
       color: var(--secondary-500);
       font-size: 80px;
       font-family: Dungeon;
-      padding-top: 0.7em;
+      padding-top: 1em;
       @include stroke(2, black);
+  }
+
+  .hero img {
+    inset: 0;
+    position: absolute;
+    z-index: -50;
+    width: 100%;
+    object-fit: cover;
+    object-position: bottom;
+    height: 100%;
   }
 
   @media only screen and (min-width: 800px){

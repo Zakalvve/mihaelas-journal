@@ -3,7 +3,7 @@ import "./styles/EntryDocument.style.scss";
 export const EntryDocument = ({ type, name}) => {
     return (
         <div className="entry-document">
-            {type === "folder" ? <i class="bi bi-folder"></i> : <i class="bi bi-file-text"></i>}
+            {type === "folder" ? <i className="bi bi-folder"></i> : <i className="bi bi-file-text"></i>}
             <p>{name}</p>
         </div>
     );

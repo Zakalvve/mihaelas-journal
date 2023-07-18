@@ -20,4 +20,29 @@
 .journal-link {
     text-align: start;
     font-size: 1em;
+    text-decoration: none;
+    color: var(--primary-500);
+}
+
+.journal-link:hover{
+    text-decoration: underline;
+    color: var(--primary-700);
+}
+
+.journal-quote:before{
+    content: open-quote;
+}
+
+.journal-quote:after{
+    content: close-quote;
+}
+
+.journal-quote:before,
+.journal-quote:after{
+    display: inline-block;
+    vertical-align: bottom;
+    color: inherit;
+    font-size: 1.2em;
+    top: .2em;
+    position: relative;
 }
