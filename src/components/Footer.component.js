@@ -2,12 +2,13 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import { images } from "../assets/images";
 import "./styles/Footer.style.scss"
 import Picture from "./picture.component";
+import Image from "./image.component";
 
 export const Footer = () => {
     return (
         <div className="footer-theme">
             <Picture sources={[]}>
-                <img {...images.bgBottom.img} />
+                <Image {...images.bgBottom.img} />
             </Picture>
             <footer>
                 <Navbar>
