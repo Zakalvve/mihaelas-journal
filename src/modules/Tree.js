@@ -25,7 +25,7 @@ class Collection {
         this._availableIDs = [];
     }
     getID(){
-        return this._availableIDs.length > 0 ? this._availableIDs.pop() : this._newId++; 
+        return this._availableIDs.length > 0 ? this._availableIDs.pop() : this._newId++;
     }
 }
 
@@ -214,6 +214,10 @@ class List extends Collection {
             this.#assignHead(null);
         }        
     }
+    get length(){
+        return this._length;
+    }
+
     #assignHead(node){
         this._head = node;
         this._tail = node;

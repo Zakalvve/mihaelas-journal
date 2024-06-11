@@ -542,3 +542,31 @@ My mind is racing, how shall we meet others? They said they were going to drillw
 Yes I know, we want to go.
 How will we meet up? Wait, what am I thinking? We have stones, just use them. pish, I am such fool. There I have my answer. Maybe reason it took me so long to reach it is because people kept interrupting me.
 
+17th of Parith 862nd Year Age of Air, Taramont
+Curse it. We need to get out of this city, and to do so we have to put our trust in Quintos. Quintos of all people, why him? Grokkel. Why do we find ourselves in position where we have to trust that slimy, smarmy, back stabbing worm. Couldn’t it have been someone else. I have bad feeling about tonight, very bad feeling. I swear if that wretch doesn’t come good on his word I will find him and gut him like fish and then feed him to himself.
+
+And then there is cat. I still want to know what she is, who she is. I think Nettle trusts her, but Babcha doesn’t. I don’t know where I stand on her. Eilnala had better do good job for all our sakes keeping eye on her.
+
+I will not rest easy until we are out of this city or I have Quintos at my feet. I wish I hadn’t had to give up chance to end him, I swear our lives would be so much better if he was no longer in it. Llirra, please may I be wrong about tonight, please may it not be as bad as I fear it will be.
+
+18th of Parith 862nd Year Age of Air, Golden Grove
+Yaga, I thought it would go badly but not like that. Why did she have to stray out her house? Why could she have not roused from her slumber? Llirra, forgive me for my act, I know I did wrong but I fear I had no choice. If you need my repentance, then but name it and thy will be done. I only pray you see into my heart and know my grief.
+
+Badly indeed. I feared it as much but I would have thought worm would have betrayed us. Part of me wishes he had, then maybe eve would still be alive. But then how many others would have died? And what would have come of resistance at large? I know not, but I know it would not be good. Is weight on my conscience and life of one eve price worth paying for future of this fight? I know not, but I believe so. Not that it alleviates my guilt, I hate that I had to do that.
+
+Rest easy as you sail away. May your gods treat you well.
+
+25th of Parith 862nd Year Age of Air, Sardonyx crash
+I am still grieving for loss of Mały and Bruno, how that decision weighs heavy on my heart and I fear it shall still for long time to come. Thanks be to Ailuin for support she has shown me. I was in terrible state when she arrived two days ago. Part of me wonders how I survived through it. Loosing Mały once was bad enough, but to loose him again, and way I did was to much to bear. It has been such hard time since I last wrote in here, there is so much to say, so much to reflect on, so much that you could say we achieved. But until now I have only felt loss. Loss of Mały, loss of Bruno, loss of Vujek although he is back now, but I feel like I have lost him as his anger at decision we made is plane to see and he obviously holds some resentment towards me now. No. this hurts to much to think on. I cannot.
+
+26th of Parith 862nd Year Age of Air, Immesvale
+I know not what Ailuin thinks I can do to save Mały. I don’t know if I should be flattered by her confidence in me, what can I do? Thing that claimed him, his patron, is jinni. What can I do? I don’t even know where it is, or how to find it, or even if I can find it.
+
+Then there’s small matter of why I made choice I did. Large part of why I chose way I did was to check rise of Nocturne. As least that’s what I thought, after seeing what happened I cannot but help think we made situation worse. I hope we did not, I cannot bear thought that I sacrificed Mały and Bruno only to make matter worse.
+
+What can I do? What should I do? All I want to do now is curl up is curl up in arms of someone who loves me and will carte for me, and cry for week. But who is there? Vujek still hasn’t forgiven me, Babcha is distracted, Mały is gone, Ma and Pa aren’t here and I know not where they are, thinking on them makes me yearn to go to Brood. Ailuin is only person here for me. But she seems to think I’m stronger than I am. Though I am grateful to her. I dread to think where I would be if she hadn’t have arrived with Ivy.
+
+I guess I should be grateful to fact we defeated empire at least. It is good to know we don’t have to worry about them now. But what now? All I want is to go to Brood, but solstice is still long time away. No, that’s not true, even if she’s been to distracted to support me in this time of need, even if she doesn’t reciprocate, I do care for Babcha and she soes still have that issue with her arm. Maybe that is something I can use to focus my mind. Maybe it will help me overcome my grief. Whatever, I do need to recover my mind and she does need to recover her arm.
+
+But I still want to know what Ailuin thinks I can do about that jinni, what can I do to get Mały back.
+

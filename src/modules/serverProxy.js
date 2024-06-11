@@ -1,5 +1,5 @@
 import directoryJson from "../assets/journal/directory.json";
-import { DocumentTree} from "./Tree";
+import { DocumentTree } from "./Tree";
 
 export let journalDirectory = mapDirectory();
 
